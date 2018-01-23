@@ -1,6 +1,8 @@
 # PythonStart
 Getting started with Python (3.6+)
 
+QQ交流群：`653104619`
+
 ## Why Python? (为什么选择Python)
 
 ### 市场需求
