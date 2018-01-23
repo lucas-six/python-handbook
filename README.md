@@ -3,6 +3,12 @@ Getting started with Python (3.6+)
 
 QQ交流群：`653104619`
 
+此次回答三个问题:
+
+1. 为什么选择Python？
+1. Python能做什么？
+1. 为什么选择Python 3，而不是Python 2？
+
 ## Why Python? (为什么选择Python)
 
 ### 人工智能时代的开启
