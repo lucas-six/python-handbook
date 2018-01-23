@@ -1,48 +1,46 @@
-## 开始
-
-### 准备
+## 准备
 
 Python `3.6.4`
 
-**编辑器**
+### 编辑器
 
 - **Windows**: `Notepad++` / `Sublime Text 3`
 - **Mac**: `Sublime Text 3`
 - **Linux** (`CentOS 7.4`): `WinSCP`+`Putty` / `VirtualBox`
 
-**设置**
+**编辑器设置**
 
-- 编辑器文件关联 (.py)
-- 编辑器文件编码 (UTF-8)
-- 编辑器`Tab`键 (4空格)
-- 编辑器列边界 (79)
-- 编辑器快捷键
-- 编辑器自动完成
+- 文件关联 (.py)
+- 文件编码 (UTF-8)
+- `Tab`键 (4空格)
+- 列边界 (79)
+- 快捷键
+- 自动完成
 
-### 基础类型
+## 基础类型
 
 - `type()`
 - `isinstance()`
 - `bool`, `int`, `float`, `str`, `None`
 
-**布尔类型(`bool`)**
+### 布尔类型(`bool`)
 
 - `True` / `False`
 - `not`, `and`, `or`
 - `is`
 - 断言(**assertion**): `assert`, `AssertionError`
 
-**整数型(`int`)**
+### 整数型(`int`)
 
 - `0b`/`0o`/`0x`
 - `bin()`, `oct()`, `hex()`
 
-**浮点数(`float`)**
+### 浮点数(`float`)
 
 - `float('inf')`, `float('-inf')`, `float('nan')`
 - `round()`
 
-**操作符(operator)**
+### 操作符(operator)
 
 - `+`, `-`, `*`, `/`, `//`, `%`
 - `()`
