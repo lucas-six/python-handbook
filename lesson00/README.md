@@ -6,8 +6,9 @@ Python `3.6.4`
 
 **编辑器**
 
-- Windows: **Notepad++**, **Sublime Text 3**
-- Mac: **Sublime Text 3**
+- **Windows**: `Notepad++`, `Sublime Text 3`
+- **Mac**: `Sublime Text 3`
+- **Linux**: `WinSCP`/`Putty` + `VirtualBox` + `CentOS 7.4`
 
 ## 推荐读物
 
