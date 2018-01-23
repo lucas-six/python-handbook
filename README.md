@@ -9,7 +9,7 @@ QQ交流群：`653104619`
 
 1. [为什么选择Python？](#why-python-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9python)
 1. [Python能做什么？](#what-can-python-do-python%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88)
-1. [为什么选择Python 3，而不是Python 2？](#what-python-3)
+1. [为什么选择Python 3，而不是Python 2？](#why-python-3-not-python-2)
 
 ## Why Python? (为什么选择Python)
 
