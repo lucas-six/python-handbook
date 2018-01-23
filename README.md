@@ -7,9 +7,9 @@ QQ交流群：`653104619`
 
 此处回答三个问题:
 
-1. 为什么选择Python？
-1. Python能做什么？
-1. 为什么选择Python 3，而不是Python 2？
+1. [为什么选择Python？](#why-python-%E4%B8%BA%E4%BB%80%E4%B9%88%E9%80%89%E6%8B%A9python)
+1. [Python能做什么？](#what-can-python-do-python%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88)
+1. [为什么选择Python 3，而不是Python 2？](#what-python-3)
 
 ## Why Python? (为什么选择Python)
 
@@ -72,3 +72,7 @@ Python由于语法简洁，功能强大，且在人工智能、大数据方面�
 - 数据分析
 - 智能硬件
 - 人工智能(AI)
+
+## Why Python 3, NOT Python 2
+
+因为。。。。。。据说Python 2到`2020`年就不维护了
