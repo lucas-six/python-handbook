@@ -1,3 +1,14 @@
+## 开始
+
+### 准备
+
+Python `3.6.4`
+
+**编辑器**
+
+- Windows: **Notepad++**, **Sublime Text 3**
+- Mac: **Sublime Text 3**
+
 ## 推荐读物
 
 - [Think Python: How to Think Like a Computer Scientist](http://www.greenteapress.com/thinkpython/html/index.html) (适合无编程经验者)
