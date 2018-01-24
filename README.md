@@ -52,6 +52,8 @@ Python由于语法简洁，功能强大，且在人工智能、大数据方面�
 1. 教育部考试中心发布了《关于全国计算机等级（NCRE）体系调整的通知》，决定从
 2018年3月起，全国计算机二级考试将用Python替换Visual FoxPro
 
+![](https://raw.githubusercontent.com/leven-cn/PythonStart/v0.0.1/figures/fig-0004.jpg)
+
 ### 技术的视角
 
 `Life is Short, You Need Python`（人生苦短，我用Python）
