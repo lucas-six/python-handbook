@@ -30,14 +30,11 @@ Python `3.6.4`
 - 环境(Environment): 开发（Development），生产（Production），测试（Testing）
 - 终端(Console), 提示符(Prompt)
 - 标准输入（stdin），标准输出（stdout），标准错误（stderr）
-- 变量，常量，类型(type)和值(value)
-- 表达式(expression)，语句(statement)
-- bug, 语法错误(SyntaxError), 异常(Exception)
-- 调试(debug)
+- 异常(Exception)
 
 ### 学习大纲
 
-- Lesson 001: Python基础类型、操作符或运算符
+- Lesson 001: Python基础类型
 
 ## 推荐读物
 
