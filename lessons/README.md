@@ -1,5 +1,43 @@
-#
-- Lesson 001: 编程导论，Python基础类型、操作符或运算符
+## 准备
+
+Python `3.6.4`
+
+### 编辑器
+
+- **Windows**: `Notepad++` / `Sublime Text 3`
+- **Mac**: `Sublime Text 3`
+- **Linux** (`CentOS 7.4`): `WinSCP`+`Putty` / `VirtualBox`
+
+**编辑器设置**
+
+- 文件关联 (.py)
+- 文件编码 (UTF-8)
+- `Tab`键 (4空格)
+- 列边界 (79)
+- 快捷键
+- 自动完成
+
+## 开始
+
+### 编程导论
+
+编程的目的：**解决问题**
+
+学习编程的最好方法：*Practise, Practise and practise (练习，练习，再练习)*
+
+### 编程基础概念
+
+- 环境(Environment): 开发（Development），生产（Production），测试（Testing）
+- 终端(Console), 提示符(Prompt)
+- 标准输入（stdin），标准输出（stdout），标准错误（stderr）
+- 变量，常量，类型和值
+- 表达式，语句
+- bug,语法错误
+- 调试(debug)
+
+### 学习大纲
+
+- Lesson 001: Python基础类型、操作符或运算符
 
 ## 推荐读物
 
