@@ -34,7 +34,9 @@ Python `3.6.4`
 
 ### 学习大纲
 
-- Lesson 001: Python基础类型
+- Lesson 01: Python基础类型
+- Lesson 02: Python控制流
+- Lesson 03: Python字符串
 
 ## 推荐读物
 

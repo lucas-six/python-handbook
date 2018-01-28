@@ -36,8 +36,7 @@ a = 1
 
 - 表达式(expression)，语句(statement)
 - 变量，常量，类型(type)和值(value)，赋值语句
-- 语法错误(SyntaxError)
-- bug，调试(debug), 输出(`print()`)
+- bug，调试(debug), 输出(`print()`)，语法错误(SyntaxError)，`NameError`, `ValueError`, `IndentationError`
 - 交互模式，脚本(script)模式
 - 注释(comment): `#`
 
