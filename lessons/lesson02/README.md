@@ -58,6 +58,6 @@ while n > 0:
     n = n - 1
     if n == 1:
         break
-print('out of while: ', n)
+print('out of while:', n)
 ```
 Refer to `while_statement_with_break_print.py`
