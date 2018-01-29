@@ -79,6 +79,33 @@ assert 1 in a
 ## 常见方法
 
 - `max()` / `min()`
+- `enumerate()`
+- `zip()` / `itertools.zip_longest()`
+
+### `enumerate()` 同时获取索引和值，参考实现：
+
+```python
+def enumerate(sequence, start=0):
+    n = start
+    for elem in sequence:
+        yield n, elem
+        n += 1
+```
+
+### `zip()`/`itertools.zip_longest()` 同时遍历多个序列
+
+- `for value1, value2 in zip(seq1, seq2)`
+- `for value1, value2 in itertools.zip_longest(seq1, seq2, fillvalue=None)`
+
+### `itertools.chain()` 连接多个序列, 参考实现如下：
+
+```python
+def chain(iterators):
+    for i in iterators:
+        yield from i
+```
+
+`for item in itertools.chain(seq1, seq2)`
 
 ### 列表常用方法
 
