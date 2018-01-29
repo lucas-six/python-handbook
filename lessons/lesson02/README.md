@@ -9,13 +9,13 @@ else:
 
 ## 控制流(Control Flow)
 
-### 条件语句
+### 条件语句(Condition Statement)
 
 - `if`
 - `elif`
 - `else`
 
-### 循环语句
+### 循环语句(Loop Statement)
 
 - `for`, `in`, `else`
 - `while`, `else`
@@ -47,7 +47,7 @@ Refer to `while_statement_with_break.py`
 
 - `pass`
 
-## 彩蛋
+## 彩蛋(Something More)
 
 ### `print()`不换行
 

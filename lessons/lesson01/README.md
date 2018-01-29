@@ -7,7 +7,7 @@ a = 1
 ## 基础类型
 
 - `type()` / `isinstance()`
-- `bool`, `int`, `float`, `str`, `None`
+- `bool`, `int`, `float`, `str`, `bytes`, `None`
 
 ### 布尔类型(`bool`)
 
