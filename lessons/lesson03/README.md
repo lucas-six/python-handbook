@@ -1,4 +1,4 @@
-# Lesson 2 Python字符串
+# Lesson 3 Python字符串
 
 ```python
 a = 'abc 123  @! 你好'
