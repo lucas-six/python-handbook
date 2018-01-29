@@ -37,6 +37,7 @@ Python `3.6.4`
 - Lesson 01: Python基础类型
 - Lesson 02: Python控制流
 - Lesson 03: Python字符串
+- Lesson 04: Python列表和元组
 
 ## 推荐读物
 
