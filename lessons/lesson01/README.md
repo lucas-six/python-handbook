@@ -35,8 +35,8 @@ a = 1
 ## 编程概念
 
 - 表达式(expression)，语句(statement)
-- 变量，常量，类型(type)和值(value)，赋值语句
-- bug，调试(debug), 输出(`print()`)，语法错误(SyntaxError)，`NameError`, `ValueError`, `IndentationError`
+- 变量，常量，类型(type)和值(value)，赋值语句(assignment)
+- bug，调试(debug), 输出(`print()`)，语法错误(SyntaxError)，`NameError`, `TypeError`, `ValueError`, `IndentationError`
 - 交互模式，脚本(script)模式
 - 注释(comment): `#`
 

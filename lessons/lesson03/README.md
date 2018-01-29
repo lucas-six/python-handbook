@@ -24,6 +24,12 @@ assert chr(20320) == '你'
 
 ## 字符串 `str`
 
+**NOTE**: 字符串不可修改(immutable)!!!
+
+```python
+a[0] = 'a'  # TypeError: 'str' object does not support item assignment
+```
+
 ### 长度(length)
 
 ```python
