@@ -12,7 +12,7 @@ a = 'abc 123  @! 你好'
 
 ### Python中的编码
 
-** `ord()`/ `chr()`**
+**`ord()`/ `chr()`**
 
 ```python
 assert ord('A') == 65
