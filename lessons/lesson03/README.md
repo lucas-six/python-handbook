@@ -24,11 +24,24 @@ assert chr(20320) == '你'
 
 ## 字符串 `str`
 
+### 长度(length)
+
+```python
+assert len(a) == 12
+```
+
 ### 索引(index)
 
 ```python
 assert a[0] == 'a'
 assert a[-1] == '好'
+```
+
+### 遍历
+
+```python
+for b in a:
+    print(b)
 ```
 
 ### 分片(slice)
