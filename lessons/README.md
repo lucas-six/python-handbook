@@ -39,6 +39,7 @@ Python `3.6.4`
 - Lesson 03: Python字符串
 - Lesson 04: Python列表和元组
 - Lesson 05: Python字典和集合
+- Lesson 06: Python之禅
 
 ## 推荐读物
 
