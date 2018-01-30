@@ -1,4 +1,4 @@
-# Lesson 5 Python函数
+# Lesson 7 Python函数
 
 ```python
 def func_name():
