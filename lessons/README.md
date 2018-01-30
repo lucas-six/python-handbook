@@ -30,7 +30,6 @@ Python `3.6.4`
 - 环境(Environment): 开发（Development），生产（Production），测试（Testing）
 - 终端(Console), 提示符(Prompt)
 - 标准输入（stdin），标准输出（stdout），标准错误（stderr）
-- 异常(Exception)
 
 ### 学习大纲
 
@@ -42,6 +41,8 @@ Python `3.6.4`
 - Lesson 06: Python之禅
 - Lesson 07: Python函数
 - Lesson 08: Python面向对象
+- Lesson 09: Python异常处理
+- Lesson 10: Python文件及模块
 
 ## 推荐读物
 
