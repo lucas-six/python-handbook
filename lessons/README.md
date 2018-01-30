@@ -43,6 +43,7 @@ Python `3.6.4`
 - Lesson 08: Python面向对象
 - Lesson 09: Python异常处理
 - Lesson 10: Python文件及模块
+- Lesson 11: Python命令行
 
 ## 推荐读物
 
