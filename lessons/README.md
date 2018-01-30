@@ -41,6 +41,7 @@ Python `3.6.4`
 - Lesson 05: Python字典和集合
 - Lesson 06: Python之禅
 - Lesson 07: Python函数
+- Lesson 08: Python面向对象
 
 ## 推荐读物
 
