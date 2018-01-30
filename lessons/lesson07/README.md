@@ -69,3 +69,10 @@ def func_vargs(arg, other='o', *vargs, **args):
         # handle `**args`
         pass
 ```
+
+## 文档字符串(docstring)
+
+- `"""`
+- `__doc__`
+
+文档参考：[PEP 257 - Docstring Conventions](http://legacy.python.org/dev/peps/pep-0257/ "Docstring Conventions")
