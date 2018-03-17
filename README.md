@@ -22,18 +22,18 @@ BOSS直聘研究院数据显示，由于大批公司涉足**AI领域**，
 大部分岗位三年复合增长率超过`200%`。AI应用层职位需求增速尤为显著，
 增速最高的三个岗位依次是**算法工程师**、**语音识别**和**图像处理**。
 
-![](https://raw.githubusercontent.com/leven-cn/PythonStart/v0.0.1/figures/fig-0001.png)
+![](https://raw.githubusercontent.com/leven-cn/PythonStart/master/figures/fig-0001.png)
 
 Python由于语法简洁，功能强大，且在人工智能、大数据方面展现出效率优势，
 越来越受到欢迎。BOSS直聘研究院数据显示，2017年在雇主发布的职位说明中，Python技
 能需求增速达到`174%`，居于首位，Spark、Hadoop等大数据技能需求增幅也十分靠前。
 
-![](https://raw.githubusercontent.com/leven-cn/PythonStart/v0.0.1/figures/fig-0002.png)
+![](https://raw.githubusercontent.com/leven-cn/PythonStart/master/figures/fig-0002.png)
 
 对于技术人才来说，随着过去一年大数据、人工智能的持续火爆以及薪资高涨，不少求职
 者主动向新兴岗位靠近，转职到Python工程师、数据挖掘的求职者同比增长`15%`以上。
 
-![](https://raw.githubusercontent.com/leven-cn/PythonStart/v0.0.1/figures/fig-0003.png)
+![](https://raw.githubusercontent.com/leven-cn/PythonStart/master/figures/fig-0003.png)
 
 ### 中国基础教育的深远布局
 
@@ -52,7 +52,7 @@ Python由于语法简洁，功能强大，且在人工智能、大数据方面�
 1. 教育部考试中心发布了《关于全国计算机等级（NCRE）体系调整的通知》，决定从
 2018年3月起，全国计算机二级考试将用Python替换Visual FoxPro
 
-![](https://raw.githubusercontent.com/leven-cn/PythonStart/v0.0.1/figures/fig-0004.jpg)
+![](https://raw.githubusercontent.com/leven-cn/PythonStart/master/figures/fig-0004.jpg)
 
 ### 技术的视角
 
