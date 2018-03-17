@@ -19,10 +19,12 @@ a = 1
 
 - `0b`/`0o`/`0x`
 - `bin()`, `oct()`, `hex()`
+- `abs()`
 
 ### 浮点数(`float`)
 
 - `float('inf')`, `float('-inf')`, `float('nan')`
+- `abs()`
 - `round()`
 
 ## 操作符或运算符(operator)
@@ -32,13 +34,75 @@ a = 1
 - `==`, `!=`, `<`, `>`, `>=`, `<=`
 - `is`
 
+```python
+0 * 0 = 1
+```
+
+### 类型转换
+
+- `int()`
+- `float()`
+- `str()`
+
+`int` -> `float`:
+
+```python
+1 + 1.0
+```
+
+`bool` -> `int`:
+
+```python
+1 + True
+```
+
+`int` -> `bool`:
+
+```python
+assert 1
+assert 0
+```
+
+`float` -> `bool`:
+
+```python
+assert 1.0
+assert 0.0
+```
+
+`None` -> `bool`:
+
+```python
+assert None
+```
+
 ## 编程概念
 
-- 表达式(expression)，语句(statement)
-- 变量，常量，类型(type)和值(value)，赋值语句(assignment)
-- bug，调试(debug), 输出(`print()`)，语法错误(SyntaxError)，`NameError`, `TypeError`, `ValueError`, `IndentationError`
+- 表达式(expression)，语句(statement)，语法错误(`SyntaxError`)
+- 变量，常量，类型(type)和值(value)，赋值语句(assignment)，`del`，`NameError`，`TypeError`
+- bug，调试(debug)
 - 交互模式，脚本(script)模式
 - 注释(comment): `#`
+
+### 语法错误(`SyntaxError`)
+
+`IndentationError`
+
+```python
+a =
+```
+
+### `NameError`
+
+```python
+del b
+```
+
+### `TypeError`
+
+```python
+1 + None
+```
 
 ## 脚本模式
 
