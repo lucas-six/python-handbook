@@ -2,20 +2,26 @@
 
 Python `3.6.4`
 
+### 环境准备
+
+- **Mac**: [`MacPorts`](https://www.macports.org/install.php)
+- **Windows**: `IDLE`, or connect to remote (Linux) hosts by [Putty](http://www.putty.org/) and [WinSCP](http://winscp.net/), or setup a local virtual machine by [VirtualBox](https://www.virtualbox.org/) with `CentOS` 7.4+.
+
 ### 编辑器
 
+- **Mac**: ``Sublime Text 3`
 - **Windows**: `Notepad++` / `Sublime Text 3`
-- **Mac**: `Sublime Text 3`
-- **Linux** (`CentOS 7.4`): `WinSCP`+`Putty` / `VirtualBox`
 
 **编辑器设置**
 
-- 文件关联 (.py)
+- 文件关联，语法高亮 (.py)
 - 文件编码 (UTF-8)
 - `Tab`键 (4空格)
-- 列边界 (79)
+- 列边界 (79-100)
 - 快捷键
 - 自动完成
+- Python解释器 (optional)
+- PEP8 / Linter (optional)
 
 ## 开始
 
