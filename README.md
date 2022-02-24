@@ -1,7 +1,11 @@
 # PythonStart
 Getting started with Python (3.6+)
 
-QQ交流群：`653104619`
+Python 快速入门 (3.6+)
+
+此项目已经停止更新，已并入组织 Dookbook (https://github.com/dookbook)
+
+Dookbook (https://dookbook.info/)，是面向Python开发的日常菜谱，开箱即用，提供Python标准库常用基础模块的代码示例。
 
 ------
 
