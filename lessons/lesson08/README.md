@@ -1,7 +1,7 @@
 # Lesson 8 Python面向对象(Object Oriented, OO)
 
 ## 核心概念
-	
+
 - 类(`class`)
 - 属性(`attribute`)
 - 方法(`method`)

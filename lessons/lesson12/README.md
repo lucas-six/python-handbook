@@ -118,4 +118,3 @@ if not len(seq)    # Worse!!!
 ```
 
 自定义异常类继承自`Exception`，而不是`BaseException`, Exception设计参考[PEP 3151](https://www.python.org/dev/peps/pep-3151/)
-
