@@ -11,6 +11,12 @@
         "tables": false
     },
     "no-inline-html": {
-        "allowed_elements": []
+        "allowed_elements": [
+            "section",
+            "p",
+            "a",
+            "code",
+            "br"
+        ]
     }
 }
