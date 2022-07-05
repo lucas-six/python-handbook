@@ -14,7 +14,7 @@
 
 ## Recipes
 
-- [String format specification](/recipes/str_fmt_spec)
+- [String format specification](recipes/str_fmt_spec)
 - [Decorator](recipes/decorator)
 
 ## License
