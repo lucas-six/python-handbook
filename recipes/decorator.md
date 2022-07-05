@@ -40,49 +40,47 @@ func = dec2(dec1(func))(arg1, arg2, ...)
 ```python
 from functools import wraps
 
-def decorator(func):
-    @wraps(func)
+def decorator(_func):
+
+    @wraps(_func)
     def wrapper(*args, **kwargs):
         """wrapper function."""
         print(f'run wrapper: {args}, {kwargs}')
-        return func(*args, **kwargs)
+        return _func(*args, **kwargs)
 
-    print('run decorator')
     return wrapper
 
 @decorator
 def func(*args, **kwargs):
     """original function."""
-    print('run func')
+    print(f'run func: {args}, {kwargs}')
 
 
 # Without Arguments
 >>> func()
-run decorator
 run wrapper: (), {}
-run func
+run func: (), {}
 
 # With Arguments
 >>> func('arg1', 'arg2')
-run decorator
 run wrapper: ('arg1', 'arg2'), {}
-run func
+run func: ('arg1', 'arg2'), {}
 ```
 
 ```python
->>> func.**module**
+>>> func.__module__
 '**main**'
->>> func.**name**
+>>> func.__name__
 'func'
->>> func.**doc**
+>>> func.__doc__
 'original function.'
->>> func.**annotations**
+>>> func.__annotations__
 {}
->>> func.**qualname**
+>>> func.__qualname__
 'func'
 ```
 
-Without **`@functools.wraps`**, some attributeshave not been passed:
+Without **`@functools.wraps`**, some attributes have not been passed:
 
 ```python
 >>> func.__module__
@@ -97,12 +95,39 @@ Without **`@functools.wraps`**, some attributeshave not been passed:
 'decorator.<locals>.wrapper'
 ```
 
-### With Arguments
+### Required Arguments
+
+```python
+from functools import wraps
+
+def decorator(arg1=None, arg2=None, *_args, **_kwargs):
+
+    def _decorator(_func):
+
+        @wraps(_func)
+        def wrapper(*args, **kwargs):
+            """wrapper function."""
+            print(f'run wrapper: {arg1}, {arg2}, {_args}, {_kwargs}')
+            return _func(*args, **kwargs)
+
+        print('run _decorator')
+        return wrapper
+
+    print(f'run decorator: {arg1}, {arg2}, {_args}, {_kwargs}')
+    return _decorator
+
+@decorator(1, 2)
+def func(*args, **kwargs):
+    """original function."""
+    print(f'run func: {args}, {kwargs}')
+```
+
+### Optional Arguments
 
 ```python
 from functools import wraps, partial
 
-def decorator(func=None, arg1=None, arg2=None):
+def decorator(func=None, *, arg1=None, arg2=None):
     if func is None:
         return partial(decorator, arg1=arg1, arg2=arg2)
 
@@ -121,6 +146,33 @@ def func(*args, **kwargs):
     print('run func')
 ```
 
+## Usage: Act on Function
+
+```python
+def decorator(*_args, **_kwargs):
+
+    def wrapper(_func):
+        """wrapper function."""
+        print(f'run wrapper: {_args}, {_kwargs}')
+        return _func
+
+    print(f'run decorator: {_args}, {_kwargs}')
+    return wrapper
+
+@decorator(1)
+def func(*args, **kwargs):
+    """original function."""
+    print(f'run func: {args}, {kwargs}')
+
+
+run decorator: (1,), {}
+run wrapper: (1,), {}
+>>> func()
+run func: (), {}
+>>> func(2)
+run func: (2,), {}
+```
+
 ## `@functools.wraps` Implementation Detail
 
 ```python
@@ -137,23 +189,7 @@ def wraps(wrapped,
 
 ## Function (Method) Decorators Examples
 
-1. Add attributes to a function/method.
-
-    ```python
-    def attrs(**kwds):
-        def wrapper(func):
-            for k in kwds:
-                setattr(func, k, kwds[k])
-            return func
-        return wrapper
-
-    @attrs(versionadded="2.2",
-           author="Guido van Rossum")
-    def method(f):
-        pass
-    ```
-
-2. Enforce function argument and return types.
+1. Enforce function argument and return types.
 
     ```python
     def accepts(*types):
