@@ -11,6 +11,10 @@
   <p><a href="https://leven-cn.github.io/python-cookbook/">Recipes</a> for <code>Python 3</code></p>
 </section>
 
+## Recipes
+
+- String format specification
+
 ## License
 
 [Apache 2.0 License](https://github.com/leven-cn/python-cookbook/blob/main/LICENSE)
