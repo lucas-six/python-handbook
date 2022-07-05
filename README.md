@@ -14,7 +14,7 @@
 ## Recipes
 
 - String format specification
-- Decorator
+- [Decorator](recipes/decorator)
 
 ## License
 
