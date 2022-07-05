@@ -8,12 +8,13 @@
     <img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"
       alt="pre-commit" style="max-width:100%;">
   </a></p>
-  <p><a href="https://leven-cn.github.io/python-cookbook/">Recipes</a> for <code>Python 3</code></p>
+  <p>Recipes for <code>Python 3</code></p>
+  <p><a href="https://leven-cn.github.io/python-cookbook/">https://leven-cn.github.io/python-cookbook/</a></p>
 </section>
 
 ## Recipes
 
-- String format specification
+- [String format specification](/recipes/str_fmt_spec)
 - [Decorator](recipes/decorator)
 
 ## License
