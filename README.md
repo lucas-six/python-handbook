@@ -17,6 +17,7 @@
 - [String format specification](recipes/str_fmt_spec)
 - [Function (Method) Decorator](recipes/function_decorator)
 - [Class Decorator](recipes/class_decorator)
+- [Performance Measurement](recipes/perf)
 
 ## License
 
