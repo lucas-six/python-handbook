@@ -110,10 +110,8 @@ def decorator(arg1=None, arg2=None, *_args, **_kwargs):
             print(f'run wrapper: {arg1}, {arg2}, {_args}, {_kwargs}')
             return _func(*args, **kwargs)
 
-        print('run _decorator')
         return wrapper
 
-    print(f'run decorator: {arg1}, {arg2}, {_args}, {_kwargs}')
     return _decorator
 
 @decorator(1, 2)
@@ -137,7 +135,6 @@ def decorator(func=None, *, arg1=None, arg2=None):
         print(f'run wrapper: {args}, {kwargs}')
         return func(*args, **kwargs)
 
-    print('run decorator')
     return wrapper
 
 @decorator(1, 2)
