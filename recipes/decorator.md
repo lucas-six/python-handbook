@@ -184,40 +184,6 @@ def wraps(wrapped,
     return partial(update_wrapper, wrapped=wrapped, assigned=assigned, updated=updated)
 ```
 
-## Function (Method) Decorators Examples
-
-1. Enforce function argument and return types.
-
-    ```python
-    def accepts(*types):
-        def wrapper(func):
-            assert len(types) == func.func_code.co_argcount
-
-            def new_func(*args, **kwds):
-                for (a, t) in zip(args, types):
-                    assert isinstance(a, t), f'arg {a} does not match {t}'
-                return func(*args, **kwds)
-
-            new_func.func_name = func.func_name
-            return new_func
-        return wrapper
-
-    def returns(rtype):
-        def wrapper(func):
-            def new_func(*args, **kwds):
-                result = func(*args, **kwds)
-                assert isinstance(result, rtype), f'return value {result} does not match {rtype}'
-                return result
-            new_func.func_name = func.func_name
-            return new_func
-        return wrapper
-
-    @accepts(int, (int,float))
-    @returns((int,float))
-    def func(arg1, arg2):
-        return arg1 * arg2
-    ```
-
 ## Class Decorators
 
 ```python
