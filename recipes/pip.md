@@ -3,6 +3,73 @@
 - `pip`: libraries and applications
 - `pipx`: applications
 
+## `pip.conf`
+
+```ini
+# pip.conf
+#
+# Unix
+#   - /etc/pip.conf
+#   - ~/.config/pip/pip.conf
+# macOS
+#   - /Library/Application Support/pip/pip.conf
+#   - ~/Library/Application Support/pip/pip.conf
+#   - ~/.config/pip/pip.conf
+
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+; index-url = https://mirrors.aliyun.com/pypi/simple/
+timeout = 15
+retries = 5
+; no-cache-dir = false
+; quiet = 0
+; verbose = 2
+
+[install]
+trusted-host =
+    pypi.tuna.tsinghua.edu.cn
+    mirrors.aliyun.com
+timeout = 10
+retries = 3
+; ignore-installed = true
+; no-dependencies = yes
+; no-compile = no
+; no-warn-script-location = false
+
+[freeze]
+timeout = 10
+retries = 3
+
+[list]
+format = columns
+```
+
+## `pip` Completion
+
+### Bash
+
+```bash
+pip completion --bash >> ~/.bash_profile
+```
+
+### Zsh
+
+```zsh
+pip completion --zsh >> ~/.zprofile
+```
+
+### fish
+
+```fish
+pip completion --fish > ~/.config/fish/completions/pip.fish
+```
+
+### PowerShell
+
+```powershell
+pip completion --powershell | Out-File -Encoding default -Append $PROFILE
+```
+
 ## Install Packages
 
 ### From PyPI (Default)
