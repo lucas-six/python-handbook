@@ -335,6 +335,8 @@ test = [
 
 [tool.flake8]
 max_complexity = 20
+max-line-length = 88
+benchmark = true
 ```
 
 ### `.pre-commit-config.yaml`
