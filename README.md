@@ -28,6 +28,7 @@
   - [`pipenv` - Virtual Environment Manager](recipes/pipenv): combine `pip` and `venv`
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](recipes/package)
+  - [`pytest` - Testing Framework](recipes/pytest)
 - [Performance Measurement](recipes/perf)
 
 ## License
