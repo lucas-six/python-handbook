@@ -25,7 +25,7 @@
 - [Class Decorator](recipes/class_decorator)
 - Package Management
   - [`pip` and `pipx`](recipes/pip)
-  - [`pipenv`](recipes/pipenv): Virtual Environment Manager, combine `pip` and `venv`
+  - [`pipenv` - Virtual Environment Manager](recipes/pipenv): combine `pip` and `venv`
 - [Performance Measurement](recipes/perf)
 
 ## License
