@@ -26,6 +26,8 @@
 - Package Management
   - [`pip` and `pipx`](recipes/pip)
   - [`pipenv` - Virtual Environment Manager](recipes/pipenv): combine `pip` and `venv`
+- Project Management
+  - [Packaging Python Projects, Publishing to PyPI](recipes/package)
 - [Performance Measurement](recipes/perf)
 
 ## License
