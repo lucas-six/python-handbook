@@ -23,6 +23,7 @@
 - [String format specification](recipes/str_fmt_spec)
 - [Function (Method) Decorator](recipes/function_decorator)
 - [Class Decorator](recipes/class_decorator)
+- [Type Hint](recipes/type_hint)
 - Package Management
   - [`pip` and `pipx`](recipes/pip)
   - [`pipenv` - Virtual Environment Manager](recipes/pipenv): combine `pip` and `venv`
