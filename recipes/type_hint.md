@@ -176,6 +176,15 @@ class C:
     ins_attr: int = 10                        # instance variable
 ```
 
+## Typeshed Stub
+
+See [typeshed](https://github.com/python/typeshed) and [mypy](https://github.com/python/mypy).
+
+```bash
+pip install mypy
+pip install mypy-xxx
+```
+
 ## Backward Compability
 
 See [typing-extensions](https://pypi.org/project/typing-extensions/ "PyPI - typing-extensions").
@@ -210,4 +219,6 @@ are handled by evaluating them in `globalns` and `localns` namespaces.
 - [PEP 585 – Type Hinting Generics In Standard Collections](https://peps.python.org/pep-0585/)
 - [PEP 586 – Literal Types](https://peps.python.org/pep-0586/)
 - [PEP 563 – Postponed Evaluation of Annotations](https://peps.python.org/pep-0563/)
-- [PyPI - typing-extensions](https://pypi.org/project/typing-extensions/)
+- [GitHub - `typeshed`](https://github.com/python/typeshed)
+- [Github - `mypy`](https://github.com/python/mypy).
+- [PyPI - `typing-extensions`](https://pypi.org/project/typing-extensions/)
