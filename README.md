@@ -25,7 +25,8 @@
 - [Class Decorator](recipes/class_decorator)
 - [Type Hint](recipes/type_hint)
 - Package Management
-  - [`pip` and `pipx`](recipes/pip)
+  - [`pip` - Official Package Manager](recipes/pip)
+  - [`pipx` - Install and Run Python Applications](recipes/pipx)
   - [`pipenv` - Virtual Environment Manager](recipes/pipenv): combine `pip` and `venv`
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](recipes/package)
