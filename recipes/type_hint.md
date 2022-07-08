@@ -201,7 +201,7 @@ are handled by evaluating them in `globalns` and `localns` namespaces.
 
 ## References
 
-- [Python - `typing`](/docs/python/lastest/en/library/typing.html)
+- [Python - `typing`](https://docs.python.org/3/library/typing.html)
 - [PEP 526 - Syntax for Variable Annotations](https://peps.python.org/pep-0526/)
 - [PEP 3107 – Function Annotations](https://peps.python.org/pep-3107/)
 - [PEP 484 – Type Hints](https://peps.python.org/pep-0484/)
