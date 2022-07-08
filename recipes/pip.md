@@ -1,7 +1,4 @@
-# `pip` and `pipx`
-
-- `pip`: libraries and applications
-- `pipx`: applications
+# `pip` - Official Package Manager
 
 ## `pip.conf`
 
@@ -205,40 +202,8 @@ pip search <pkg-name>
 
 ## Common Options
 
-- **`--default-timeout`**: Set the default timeout in seconds.
 - **`--timeout`**: Set the socket timeout, in seconds (default *`15`* seconds).
 - **`--retries`**: Maximum number of retries each connection should attempt (default *`5`* times).
-
-## `pipx`
-
-### Set Up
-
-```bash
-pip install pipx
-
-pipx ensurepath
-pipx completions
-```
-
-### Usage
-
-#### Install packages
-
-```bash
-pipx install <pkg> ...
-```
-
-#### List applications installed
-
-```bash
-pipx list
-```
-
-#### Uninstall applicaitons
-
-```bash
-pix uninstall <app> ...
-```
 
 ## Install `pip`
 
@@ -249,7 +214,6 @@ python -m ensurepip --upgrade
 ## References
 
 - [`pip` Documentation](https://pip.pypa.io/en/stable/)
-- [`pipx` Documentation](https://pypa.github.io/pipx/)
 - [PyPI Home](https://pypi.org)
 - [PEP 440 - Version Identification and Dependency Specification](https://peps.python.org/pep-0440/)
 - [PEP 508 - Dependency specification for Python Software Packages](https://peps.python.org/pep-0508/)
