@@ -23,6 +23,7 @@
 - [String format specification](recipes/str_fmt_spec)
 - [Function (Method) Decorator](recipes/function_decorator)
 - [Class Decorator](recipes/class_decorator)
+- [Context Manager](recipes/context_manager): `with` statement
 - [Type Hint](recipes/type_hint)
 - Package Management
   - [`pip` - Official Package Manager](recipes/pip)
