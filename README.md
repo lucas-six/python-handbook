@@ -1,12 +1,12 @@
-# Python Cookbook
+# Python Handbook
 
 <section align="center">
-  <img src="https://raw.githubusercontent.com/leven-cn/python-cookbook/main/.python-logo.png"
+  <img src="https://raw.githubusercontent.com/leven-cn/python-handbook/main/.python-logo.png"
     alt="Python Logo" width="200" height="200" title="Python Logo">
   <br><br>
   <p>
-    <a href="https://github.com/leven-cn/python-cookbook/actions/workflows/lint.yml">
-      <img src="https://github.com/leven-cn/python-cookbook/actions/workflows/lint.yml/badge.svg"
+    <a href="https://github.com/leven-cn/python-handbook/actions/workflows/lint.yml">
+      <img src="https://github.com/leven-cn/python-handbook/actions/workflows/lint.yml/badge.svg"
       alt="GitHub Actions - lint" style="max-width:100%;">
     </a>
     <a href="https://github.com/pre-commit/pre-commit">
@@ -14,8 +14,8 @@
       alt="pre-commit" style="max-width:100%;">
     </a>
   </p>
-  <p>Recipes for <code>Python 3</code></p>
-  <p><a href="https://leven-cn.github.io/python-cookbook/">https://leven-cn.github.io/python-cookbook/</a></p>
+  <p>A missing manuall for <code>Python 3</code></p>
+  <p><a href="https://leven-cn.github.io/python-handbook/">https://leven-cn.github.io/python-handbook/</a></p>
 </section>
 
 ## Recipes
@@ -36,4 +36,4 @@
 
 ## License
 
-[Apache 2.0 License](https://github.com/leven-cn/python-cookbook/blob/main/LICENSE)
+[Apache 2.0 License](https://github.com/leven-cn/python-handbook/blob/main/LICENSE)
