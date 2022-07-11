@@ -20,18 +20,21 @@
 
 ## Topics
 
-- [String format specification](recipes/str_fmt_spec)
-- [Function (Method) Decorator](recipes/function_decorator)
-- [Class Decorator](recipes/class_decorator)
-- [Context Manager](recipes/context_manager)
-- [Type Hint](recipes/type_hint)
+### Core
+
+- [String format specification](recipes/core/str_fmt_spec)
+- [Function (Method) Decorator](recipes/core/function_decorator)
+- [Class Decorator](recipes/core/class_decorator)
+- [Context Manager](recipes/core/context_manager)
+- [Type Hint](recipes/core/type_hint)
 - Package Management
-  - [`pip` - Official Package Manager](recipes/pip)
-  - [`pipx` - Install and Run Python Applications](recipes/pipx)
-  - [`pipenv` - Virtual Environment Manager](recipes/pipenv): combine `pip` and `venv`
+  - [`pip` - Official Package Manager](recipes/core/pip)
+  - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
+  - [`pipenv` - Virtual Environment Manager](recipes/core/pipenv): combine `pip` and `venv`
+- Test
+  - [`pytest` - Testing Framework](recipes/core/pytest)
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](recipes/package)
-  - [`pytest` - Testing Framework](recipes/pytest)
 - [Performance Measurement](recipes/perf)
 
 ## License
