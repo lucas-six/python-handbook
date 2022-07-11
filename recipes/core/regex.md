@@ -11,6 +11,7 @@ m: re.Match[str] = p.search('string')
 if m:
     assert m.start(), m.end() == m.span()
     s: str = m.group()
+    # b: bytes = m.group()
 else:
     print('no match')
 ```
