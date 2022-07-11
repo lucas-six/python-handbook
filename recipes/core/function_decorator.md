@@ -1,4 +1,4 @@
-# Function Decorator
+# Function (Method) Decorator
 
 ## Syntactic Sugar
 
