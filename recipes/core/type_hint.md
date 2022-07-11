@@ -129,7 +129,8 @@ e: Type[BaseException]
 import re
 p: re.Pattern[str] = re.compile(r'xxx')
 p: re.Pattern[bytes] = re.compile(rb'xxx')
-m: re.Match[bytes] = re.match(r'xxx', 'xxx')
+m: re.Match[str] = re.match(r'xxx', 'xxx')
+m: re.Match[bytes] = re.match(rb'xxx', b'xxx')
 
 # `typing.NoReturn`
 def func(arg: int, arg2: str = 'a') -> NoReturn:
