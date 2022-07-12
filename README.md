@@ -31,7 +31,7 @@
 - Package Management
   - [`pip` - Official Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
-  - [`pipenv` - Virtual Environment Manager](recipes/core/pipenv): combine `pip` and `venv`
+  - [`pipenv` - Virtual Environment Manager](recipes/core/pipenv)
 - Test
   - [`pytest` - Testing Framework](recipes/core/pytest)
 - Project Management
