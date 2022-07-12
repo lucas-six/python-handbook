@@ -40,6 +40,13 @@ if m:
     s = m.groupdict('first')
 ```
 
+## Alternative `re` module
+
+```bash
+pip install regex
+```
+
 ## References
 
 - [Python - `re`](https://docs.python.org/3/library/re.html)
+- [PyPI - `regex`](https://pypi.org/project/regex/)
