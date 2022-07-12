@@ -27,7 +27,9 @@
 - [Class Decorator](recipes/core/class_decorator)
 - [Context Manager](recipes/core/context_manager)
 - [Type Hint](recipes/core/type_hint)
-- [Regex (Regular Expression)](recipes/core/regex)
+- Text Processing
+  - [Regex (Regular Expression)](recipes/core/regex)
+  - [FlashText Algorithm - `flashtext`](recipes/core/flashtext)
 - Package Management
   - [`pip` - Official Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
