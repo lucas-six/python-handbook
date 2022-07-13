@@ -33,6 +33,7 @@
 - I/O, file-like object
   - [Inheritance of File Descriptor](recipes/core/fd_inheritable)
   - [file-like object (I/O)](recipes/core/file_object)
+  - [`open` Reference Implementation](recipes/core/open)
 - Package Management
   - [`pip` - Official Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
