@@ -306,12 +306,6 @@ On the other hand, changing *`encoding`* after write is possible.
 
 This method does an implicit stream flush before setting the new parameters.
 
-### Universal Newline
-
-A manner of interpreting text streams in which all of the following are recognized as ending a line:
-the *Unix*/*Linux*/*macOS* end-of-line convention **`'\n'`**, the *Windows* convention **`'\r\n'`**,
-and the *old Macintosh* convention **`'\r'`**.
-
 ### `io.StringIO`
 
 ```python
