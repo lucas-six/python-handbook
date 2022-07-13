@@ -69,8 +69,8 @@ classDiagram
       +read(size) str
       readline(size)* str
       +write(s) int
-      seek(offset, whence)* int
-      tell()* int
+      +seek(offset, whence) int
+      +tell() int
     }
     class FileIO {
       +str mode
@@ -347,6 +347,7 @@ output.close()
 
 ## References
 
-- [Python - `io`](https://docs.python.org/3/library/io.html)
+- [Python - `io` module](https://docs.python.org/3/library/io.html)
+- [Python - `open()`](https://docs.python.org/3/library/functions.html#open)
 - [PEP 3116 - New I/O](https://peps.python.org/pep-3116/)
 - [PEP 278 - Universal Newline Support](https://peps.python.org/pep-0278/)
