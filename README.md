@@ -28,6 +28,7 @@
 - [Context Manager](recipes/core/context_manager)
 - [Type Hint](recipes/core/type_hint)
 - Text Processing
+  - [Universal Newline](recipes/core/universal_newline)
   - [Regex (Regular Expression)](recipes/core/regex)
   - [FlashText Algorithm - `flashtext`](recipes/core/flashtext)
 - I/O, file-like object
