@@ -30,6 +30,8 @@
 - Text Processing
   - [Regex (Regular Expression)](recipes/core/regex)
   - [FlashText Algorithm - `flashtext`](recipes/core/flashtext)
+- I/O, file-like objects
+  - [Inheritance of File Descriptors](recipes/core/fd_inheritable)
 - Package Management
   - [`pip` - Official Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
