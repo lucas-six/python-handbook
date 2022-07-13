@@ -38,9 +38,7 @@
   - [file-like object (I/O)](recipes/core/file_object)
   - [`open()` Reference Implementation](recipes/core/open)
 - Parallelism & Cocurrent
-  - [Multi-Threads - `threading`](recipes/core/thread): In CPython,
-  due to the *Global Interpreter Lock* (*GIL*),
-  suitabale for **I/O-bound** tasks
+  - [Multi-Threads - `threading`](recipes/core/thread): for **I/O-bound** tasks due to the *GIL* of CPython
   - [Synchronization Primitives - `Event`, `Lock`/`RLock`, `Condition`, `Semaphore`/`BoundedSemaphore`, `Barrier`](recipes/core/synchronization)
 - Package Management
   - [`pip` - Official Package Manager](recipes/core/pip)
