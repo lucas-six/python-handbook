@@ -20,6 +20,8 @@
 
 ## Topics
 
+<!-- markdownlint-disable line-length -->
+
 ### Core
 
 - [String format specification](recipes/core/str_fmt_spec)
@@ -39,6 +41,7 @@
   - [Multi-Threads - `threading`](recipes/core/thread): In CPython,
   due to the *Global Interpreter Lock* (*GIL*),
   suitabale for **I/O-bound** tasks
+  - [Synchronization Primitives - `Event`, `Lock`/`RLock`, `Condition`, `Semaphore`/`BoundedSemaphore`, `Barrier`](recipes/core/synchronization)
 - Package Management
   - [`pip` - Official Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
@@ -48,6 +51,8 @@
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](recipes/package)
 - [Performance Measurement](recipes/perf)
+
+<!-- markdownlint-enable line-length -->
 
 ## License
 
