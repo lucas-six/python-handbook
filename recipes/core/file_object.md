@@ -258,7 +258,7 @@ A file object able to read and write **`str`** objects.
 ```python
 # For UTF-8 with BOM, use encoding='utf-8-sig'
 # errors=None same with errors='strict',
-#   raise ValueError when encoding erros happened
+#   raise ValueError when encoding/decoding errors happened
 # newlines=None: universal newlines mode
 with open('x.txt', 'w+', encoding='utf-8') as f:
     assert isinstance(f, io.TextIOWrapper)
