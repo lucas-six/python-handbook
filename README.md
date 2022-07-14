@@ -33,9 +33,9 @@
   - [Universal Newline](recipes/core/universal_newline)
   - [Regex (Regular Expression)](recipes/core/regex)
   - [FlashText Algorithm - `flashtext`](recipes/core/flashtext)
-- I/O, file-like object
+- I/O (File-Like Object)
   - [Inheritance of File Descriptor](recipes/core/fd_inheritable)
-  - [file-like object (I/O)](recipes/core/file_object)
+  - [File-Like Object (I/O)](recipes/core/file_object)
   - [`open()` Reference Implementation](recipes/core/open)
 - Parallelism & Cocurrent
   - [Multi-Threads - `threading`](recipes/core/thread): for **I/O-bound** tasks due to the *GIL* of CPython
