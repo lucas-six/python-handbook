@@ -222,7 +222,7 @@ with open('x.png', 'rw') as f:
     curr_pos: int = f.seek(1, io.SEEK_CUR)
 ```
 
-### In-memory bytes buffer: `io.BytesIO`
+#### In-memory bytes buffer: `io.BytesIO`
 
 ```python
 with io.BytesIO(b'data') as buf:
