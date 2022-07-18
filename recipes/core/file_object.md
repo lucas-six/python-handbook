@@ -169,6 +169,8 @@ Also called **buffered I/O**, expects *bytes-like objects* and produces *`bytes`
 
 ### Usage
 
+#### Read/Write
+
 ```python
 with open('x.png', 'wb+') as f:
     assert isinstance(f, io.BufferedRandom)
@@ -183,6 +185,8 @@ with open('x.png', 'wb+') as f:
     curr_pos: int = f.seek(0)
     curr_pos: int = f.seek(1, io.SEEK_CUR)
 ```
+
+#### Read Only
 
 ```python
 with open('x.png', 'rb') as f:
@@ -200,6 +204,22 @@ with open('x.png', 'rb') as f:
     # similar with read(), but position not changed
     # At most one single read on the raw stream is done
     data: bytes = f.peek()
+```
+
+#### Write Only
+
+```python
+with open('x.png', 'rw') as f:
+    assert isinstance(f, io.BufferedWriter)
+
+    assert not f.readable()
+    assert f.writable()
+    f.write(b'data')
+
+    assert f.seekable()
+    curr_pos: int = f.tell()
+    curr_pos: int = f.seek(0)
+    curr_pos: int = f.seek(1, io.SEEK_CUR)
 ```
 
 ### `io.BufferedRandom`
