@@ -211,7 +211,7 @@ are handled by evaluating them in `globalns` and `localns` namespaces.
 
 ## References
 
-- [Python - `typing`](https://docs.python.org/3/library/typing.html)
+- [Python - `typing` module](https://docs.python.org/3/library/typing.html)
 - [PEP 526 - Syntax for Variable Annotations](https://peps.python.org/pep-0526/)
 - [PEP 3107 – Function Annotations](https://peps.python.org/pep-3107/)
 - [PEP 484 – Type Hints](https://peps.python.org/pep-0484/)
@@ -221,5 +221,5 @@ are handled by evaluating them in `globalns` and `localns` namespaces.
 - [PEP 586 – Literal Types](https://peps.python.org/pep-0586/)
 - [PEP 563 – Postponed Evaluation of Annotations](https://peps.python.org/pep-0563/)
 - [GitHub - `typeshed`](https://github.com/python/typeshed)
-- [Github - `mypy`](https://github.com/python/mypy).
-- [PyPI - `typing-extensions`](https://pypi.org/project/typing-extensions/)
+- [GitHub - `mypy`](https://github.com/python/mypy).
+- [PyPI - `typing-extensions` package](https://pypi.org/project/typing-extensions/)
