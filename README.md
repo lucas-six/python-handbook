@@ -28,6 +28,7 @@
 - [Function (Method) Decorator](recipes/core/function_decorator)
 - [Class Decorator](recipes/core/class_decorator)
 - [Context Manager](recipes/core/context_manager)
+- [Time](recipes/core/time)
 - [Type Hint](recipes/core/type_hint)
 - Text Processing
   - [Universal Newline](recipes/core/universal_newline)
