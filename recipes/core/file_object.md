@@ -222,6 +222,24 @@ with open('x.png', 'rw') as f:
     curr_pos: int = f.seek(1, io.SEEK_CUR)
 ```
 
+### In-memory bytes buffer: `io.BytesIO`
+
+```python
+with io.BytesIO(b'data') as buf:
+    assert f.readable()
+    assert f.writable()
+    data: bytes = buf.read()
+    buf.write(data)
+
+    data_view = buf.getbuffer()  # without copying
+    all_data = buf.getvalue()  # Difference from `read()`: don't change file position
+
+    assert f.seekable()
+    curr_pos: int = f.tell()
+    curr_pos: int = f.seek(0)
+    curr_pos: int = f.seek(1, io.SEEK_CUR)
+```
+
 ### `io.BufferedRandom`
 
 ```python
