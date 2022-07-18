@@ -1,6 +1,6 @@
 # Time
 
-## Unix time or timestamp
+## Timestamp (Unix time)
 
 ```python
 import time
