@@ -33,6 +33,7 @@
   - Representation (Format) of Dates and Times
     - [ISO 8601 Format](recipes/core/iso_8601_fmt)
     - [RFC 3339 Format](recipes/core/rfc_3339_fmt)
+    - [Format Dates and Times](recipes/core/time_str_fmt)
   - [Time Zone](recipes/core/timezone)
 - [Type Hint](recipes/core/type_hint)
 - Text Processing
