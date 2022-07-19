@@ -56,15 +56,6 @@ import time
 >>> isinstance(t, float)
 ```
 
-## String Format
-
-```python
-import time
-
->>> time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())
-'YYYY-MM-DD hh:mm:ss'
-```
-
 ## Sleep
 
 ```python
