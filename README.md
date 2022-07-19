@@ -30,6 +30,8 @@
 - [Context Manager](recipes/core/context_manager)
 - Time
   - [Time](recipes/core/time)
+  - Representation (Format) of Dates and Times
+    - [ISO 8601 Format](recipes/core/iso_8601_fmt)
   - [Time Zone](recipes/core/timezone)
 - [Type Hint](recipes/core/type_hint)
 - Text Processing
