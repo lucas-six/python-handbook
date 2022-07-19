@@ -189,6 +189,6 @@ t2.join()
 
 ## References
 
-- [Python - `threading` module](/docs/python/lastest/en/library/threading.html)
-- [Python - `queue` module](/docs/python/lastest/en/library/queue.html)
-- [Python - `_thread` module](/docs/python/lastest/en/library/_thread.html)
+- [Python - `threading` module](https://docs.python.org/3/library/threading.html)
+- [Python - `queue` module](https://docs.python.org/3/library/queue.html)
+- [Python - `_thread` module](https://docs.python.org/3/library/_thread.html)
