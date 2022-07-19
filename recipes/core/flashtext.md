@@ -11,4 +11,4 @@ This algorithm is much faster than Regex, because regex time complexity is `O(Mx
 ## References
 
 - [FlashText Algorithm - Replace or Retrieve Keywords In Documents at Scale](https://arxiv.org/abs/1711.00046)
-- [PyPI - `flashtext`](https://pypi.org/project/flashtext/)
+- [PyPI - `flashtext` package](https://pypi.org/project/flashtext/)
