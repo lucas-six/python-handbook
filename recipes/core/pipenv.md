@@ -105,5 +105,5 @@ pipenv --pypi-mirror https://mirrors.aliyun.com/pypi/simple/ <cmd>
 ## References
 
 - [`Pipenv` Documentation](https://pipenv.pypa.io/en/latest/)
-- [Python Documentation - `venv`](https://docs.python.org/3/library/venv.html)
+- [Python - `venv` module](https://docs.python.org/3/library/venv.html)
 - [PEP 405 – Python Virtual Environments](https://peps.python.org/pep-0405/)
