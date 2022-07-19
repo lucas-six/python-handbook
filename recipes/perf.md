@@ -73,6 +73,6 @@ snakeviz <result.pstats>
 
 ## References
 
-- [Python - `timeit`](https://docs.python.org/3/library/timeit.html)
-- [Python - The Python Profilers: `cProfile`/`profile`/`pstats`](https://docs.python.org/3/library/profile.html)
+- [Python - `timeit` module](https://docs.python.org/3/library/timeit.html)
+- [Python - The Python Profilers: `cProfile`/`profile`/`pstats` modules](https://docs.python.org/3/library/profile.html)
 - [`snakeviz` Documentation](https://jiffyclub.github.io/snakeviz/)
