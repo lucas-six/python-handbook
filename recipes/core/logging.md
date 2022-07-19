@@ -144,7 +144,7 @@ logging.basicConfig(level=numeric_level, ...)
 
 ## Logging Flow
 
-![Logging Flow](/imgs/logging_flow.png)
+![Logging Flow](https://leven-cn.github.io/python-handbook/imgs/logging_flow.png)
 
 ## References
 
