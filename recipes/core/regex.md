@@ -48,5 +48,5 @@ pip install regex
 
 ## References
 
-- [Python - `re`](https://docs.python.org/3/library/re.html)
-- [PyPI - `regex`](https://pypi.org/project/regex/)
+- [Python - `re` module](https://docs.python.org/3/library/re.html)
+- [PyPI - `regex` package](https://pypi.org/project/regex/)
