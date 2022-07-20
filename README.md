@@ -45,8 +45,8 @@
   - [File-Like Object (I/O)](recipes/core/file_object)
   - [`open()` Reference Implementation](recipes/core/open)
 - Parallelism & Cocurrent
-  - [Multi-Threads - `threading`](recipes/core/multi_threads): for **I/O-bound** tasks
-  - [Multi-Processes - `multiprocessing`](recipes/core/multi_processes): for **CPU-bound** tasks
+  - [`threading` - Multi-Threads for **I/O-bound** tasks](recipes/core/multi_threads)
+  - [`multiprocessing` - Multi-Processes for **CPU-bound** tasks](recipes/core/multi_processes)
   - [Synchronization Primitives](recipes/core/synchronization)
     - `Event`
     - `Lock`/`RLock`
