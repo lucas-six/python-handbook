@@ -157,4 +157,5 @@ if __name__ == '__main__':
 ## References
 
 - [Python - `threading` module](https://docs.python.org/3/library/threading.html)
+- [Python - `multiprocessing` module](https://docs.python.org/3/library/multiprocessing.html)
 - [Python - `_thread` module](https://docs.python.org/3/library/_thread.html)
