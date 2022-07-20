@@ -231,45 +231,6 @@ if __name__ == '__main__':
         max_num_tasks -= 1
 ```
 
-### Lock
-
-```python
-import multiprocessing
-
-class MutexResource:
-
-    def __init__(self):
-        self.value = 0
-        self.lock = multiprocessing.Lock()
-
-    def inc(self):
-        # is equivalent to:
-        #
-        # self.lock.acquire()
-        # try:
-        #     self.value += 1
-        # finally:
-        #     self.lock.release()
-        with self.lock:
-            self.value += 1
-
-def worker(r):
-    for i in range(3):
-        r.inc()
-
-
-if __name__ == '__main__':
-    mutex = MutexResource()
-    jobs = []
-    for i in range(3):
-        p = multiprocessing.Process(target=worker, args=(mutex,))
-        jobs.append(p)
-        p.start()
-
-    for p in jobs:
-        p.join()
-```
-
 ### RLock vs Lock
 
 RLock = **reentrant lock** = **recursion lock**

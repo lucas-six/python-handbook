@@ -1,44 +1,5 @@
 # Synchronization Primitives
 
-## (Mutex) Lock
-
-```python
-import threading
-import time
-
-class MutexResource:
-
-    def __init__(self):
-        self.value = 0
-        self.lock = threading.Lock()
-
-    def inc(self):
-        # is equivalent to:
-        #
-        # self.lock.acquire()
-        # try:
-        #     self.value += 1
-        # finally:
-        #     self.lock.release()
-        with self.lock:
-            self.value += 1
-
-def worker(r):
-    for i in range(3):
-        time.sleep(0.5)
-        r.inc()
-
-r = MutexResource()
-for i in range(3):
-    t = threading.Thread(target=worker, args=(r,))
-    t.start()
-
-main_thread = threading.main_thread()
-for t in threading.enumerate():
-    if t is not main_thread:
-        t.join()
-```
-
 ## RLock
 
 RLock = **reentrant lock** = **recursion lock**
