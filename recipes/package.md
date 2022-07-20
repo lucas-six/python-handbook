@@ -334,8 +334,9 @@ test = [
 ]
 
 [tool.flake8]
-max_complexity = 20
+max_complexity = 10
 max-line-length = 88
+show-source = true
 benchmark = true
 ```
 
