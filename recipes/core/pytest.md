@@ -64,7 +64,7 @@ pytest -m <mathing-expr e.g. "MyClass and not method">
 
 ### Profiling
 
-列出超过 `N` 秒的最慢的 `M` 个测试用例：
+show `M` slowest (greater than `N` seconds) setup/test durations:
 
 ```bash
 pytest --durations=<M> --durations-min=<N>
