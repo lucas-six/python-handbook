@@ -1,14 +1,5 @@
 # Synchronization Primitives
 
-## RLock
-
-RLock = **reentrant lock** = **recursion lock**
-
-- *RLock* may be acquired multiple times by the same thread (owns the lock,
-lock the lock or recursion lock),
-but only once for *Lock*
-- *RLock* can only be released by the owning thread, but *Lock* can be released by any other threads.
-
 ## Condition Variable
 
 typical use case: producer-consumer situation with unlimited buffer capacity:

@@ -231,15 +231,6 @@ if __name__ == '__main__':
         max_num_tasks -= 1
 ```
 
-### RLock vs Lock
-
-RLock = **reentrant lock** = **recursion lock**
-
-- *RLock* may be acquired multiple times by the same process (owns the lock,
-lock the lock or recursion lock),
-but only once for *Lock*
-- *RLock* can only be released by the owning process, but *Lock* can be released by any other processes.
-
 ### Condition Variable
 
 typical use case: producer-consumer situation with unlimited buffer capacity:

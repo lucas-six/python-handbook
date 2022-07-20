@@ -49,8 +49,8 @@
   - [`multiprocessing` - Multi-Processes for **CPU-bound** tasks](recipes/core/multi_processes)
   - [Synchronization Primitives - `Event`](recipes/core/synchronization_event)
   - [Synchronization Primitives - Mutex Lock `Lock`](recipes/core/synchronization_lock)
+  - [Synchronization Primitives - Reentrant Lock `RLock`](recipes/core/synchronization_rlock)
   - [Synchronization Primitives](recipes/core/synchronization)
-    - `RLock`
     - `Condition`
     - `Semaphore`/`BoundedSemaphore`
     - `Barrier`
