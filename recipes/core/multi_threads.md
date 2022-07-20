@@ -56,6 +56,7 @@ for i in range(5):
 main_thread = threading.main_thread()
 for t in threading.enumerate():  # enumerate active threads
     if t is not main_threading:
+        logger.debug(f'join {t.name}({t.native_id}')
         t.join()
 ```
 
