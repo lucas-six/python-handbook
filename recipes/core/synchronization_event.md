@@ -153,3 +153,8 @@ if __name__ == '__main__':
     for p in multiprocessing.active_children():
         p.join()
 ```
+
+## References
+
+- [Python - `threading` module](https://docs.python.org/3/library/threading.html)
+- [Python - `_thread` module](https://docs.python.org/3/library/_thread.html)
