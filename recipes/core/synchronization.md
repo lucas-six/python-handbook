@@ -1,41 +1,5 @@
 # Synchronization Primitives
 
-## Event
-
-```python
-import logging
-import threading
-
-logging.basicConfig(
-    level=logging.DEBUG,
-    style='{',
-    format='[{threadName}] {message}'
-)
-
-def worker_1(event: threading.Event):
-    logging.debug('wait for event')
-    event.wait()
-    logging.debug(f'event set: {event.is_set()}')
-
-def worker_2(event: threading.Event, timeout: float):
-    while not event.is_set():
-        logging.debug('wait for event')
-        event.wait(timeout)
-        if event.is_set():
-            logging.debug('process the event')
-        else:
-            logging.debug('timeout')
-
-e = threading.Event()
-t1 = threading.Thread(worker_1, name='worker_1', args=(e,))
-t1.start()
-t2 = threading.Thread(worker_2, name='worker_2', args=(e, 2))
-t2.start()
-
-time.sleep(0.2)
-e.set()
-```
-
 ## (Mutex) Lock
 
 ```python
