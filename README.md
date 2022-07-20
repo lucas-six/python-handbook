@@ -14,7 +14,7 @@
       alt="pre-commit" style="max-width:100%;">
     </a>
   </p>
-  <p>A missing manual for <code>Python 3</code></p>
+  <p>A missing manual, hands-on guide for <code>Python 3</code></p>
   <p><a href="https://leven-cn.github.io/python-handbook/">https://leven-cn.github.io/python-handbook/</a></p>
 </section>
 
