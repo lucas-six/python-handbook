@@ -47,8 +47,8 @@
 - Parallelism & Cocurrent
   - [`threading` - Multi-Threads for **I/O-bound** tasks](recipes/core/multi_threads)
   - [`multiprocessing` - Multi-Processes for **CPU-bound** tasks](recipes/core/multi_processes)
+  - [Synchronization Primitives - `Event`](recipes/core/synchronization_event)
   - [Synchronization Primitives](recipes/core/synchronization)
-    - [`Event`](recipes/core/synchronization_event)
     - `Lock`/`RLock`
     - `Condition`
     - `Semaphore`/`BoundedSemaphore`
