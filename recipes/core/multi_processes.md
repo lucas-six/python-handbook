@@ -40,15 +40,14 @@ if __name__ == '__main__':
     logger = multiprocessing.log_to_stderr(logging.DEBUG)
 
 
+    p1 = multiprocessing.Process(target=worker, name='worker_name', args=(logger,))
+    p1.start()
     for i in range(5):
-        p1 = multiprocessing.Process(target=worker, name='worker_name', args=(logger,))
 
         # passing arguments
         # default name: "Process-N"
-        p2 = multiprocessing.Process(target=worker_args, args=(logger, i))
-
-        p1.start()
-        p2.start()
+        p = multiprocessing.Process(target=worker_args, args=(logger, i))
+        p.start()
 
 
     # enumerate active child processes
@@ -230,37 +229,6 @@ if __name__ == '__main__':
     while max_num_tasks:
         result = results.get()
         max_num_tasks -= 1
-```
-
-### Event: Exchange Status
-
-```python
-import logging
-import multiprocessing
-
-def wait_block(event: multiprocessing.Event, logger: logging.Logger):
-    logger.debug('wait for event')
-    event.wait()
-    logger.debug(f'event set: {event.is_set()}')
-
-def wait_nonblock(event: multiprocessing.Event, timeout: float, logger: logging.Logger):
-    logger.debug('wait for event')
-    event.wait(timeout)
-    if event.is_set():
-        logger.debug('process the event')
-    else:
-        logger.debug('timeout')
-
-if __name__ == '__main__':
-    e = multiprocessing.Event()
-    logger = multiprocessing.log_to_stderr(logging.DEBUG)
-    p1 = multiprocessing.Process(wait_block, name='block', args=(e, logger))
-    p2 = multiprocessing.Process(wait_nonblock, name='nonblock', args=(e, 2.5))
-    p1.start()
-    p2.start()
-
-    time.sleep(0.2)
-    e.set()
 ```
 
 ### Lock
