@@ -44,10 +44,11 @@
   - [Inheritance of File Descriptor](recipes/core/fd_inheritable)
   - [File-Like Object (I/O)](recipes/core/file_object)
   - [`open()` Reference Implementation](recipes/core/open)
-- Parallelism & Cocurrent
-  - [`threading` - Multi-Threads for **I/O-bound** tasks](recipes/core/multi_threads)
-  - [`multiprocessing` - Multi-Processes for **CPU-bound** tasks](recipes/core/multi_processes)
+- Parallelism & Concurrent
+  - [`threading` - Multi-Threads Parallelism for **I/O-bound** tasks](recipes/core/multi_threads)
+  - [`multiprocessing` - Multi-Processes Parallelism for **CPU-bound** tasks](recipes/core/multi_processes)
   - [Process Pool](recipes/core/process_pool)
+  - [`concurrent.futures` - High-Level Concurrent](recipes/core/concurrent)
   - [Synchronization Primitives - `Event`](recipes/core/synchronization_event)
   - [Synchronization Primitives - Mutex Lock `Lock`](recipes/core/synchronization_lock)
   - [Synchronization Primitives - Reentrant Lock `RLock`](recipes/core/synchronization_rlock)
