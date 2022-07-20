@@ -319,31 +319,6 @@ if __name__ == '__main__':
         p.join()
 ```
 
-## Process Pool
-
-```python
-import multiprocessing
-
-def worker(data):
-    return data * 2
-
-def worker_initializer():
-    pass
-
-if __name__ == '__main__':
-    inputs = list(range(10))
-
-    pool = multiprocessing.Pool(
-        processes=multiprocessing.cpu_count() * 2,  # default multiprocessing.cpu_count()
-        initializer=worker_initializer,
-        maxtasksperchild=2,
-    )
-
-    outputs = pool.map(worker, inputs)
-    pool.close()
-    pool.join()
-```
-
 ## References
 
 - [Python - `multiprocessing` module](https://docs.python.org/3/library/multiprocessing.html)
