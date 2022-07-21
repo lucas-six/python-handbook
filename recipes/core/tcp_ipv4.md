@@ -56,6 +56,15 @@ client.recv(1024)
 client.close()
 ```
 
+## Reuse Address
+
+The **`SO_REUSEADDR`** flag tells the kernel to reuse a local socket in **`TIME_WAIT`** state,
+without waiting for its natural timeout to expire.
+
+```python
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+```
+
 ## References
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)
