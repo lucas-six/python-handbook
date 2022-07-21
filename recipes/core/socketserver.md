@@ -102,6 +102,7 @@ if __name__ == '__main__':
 ```python
 import socketserver
 
+
 class MyUDPHandler(socketserver.BaseRequestHandler):
     """
     This class works similar to the TCP handler class, except that
@@ -112,9 +113,10 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
         data = self.request[0].strip()
-        socket = self.request[1]
+        sock = self.request[1]
         print(f'{self.client_address[0]} wrote: {self.data}')
-        socket.sendto(data.upper(), self.client_address)
+        sock.sendto(data.upper(), self.client_address)
+
 
 if __name__ == "__main__":
     with socketserver.UDPServer(('localhost', 9999), MyUDPHandler) as server:
@@ -128,6 +130,7 @@ import socket
 import threading
 import socketserver
 
+
 class ThreadingTCPRequestHandler(socketserver.BaseRequestHandler):
 
     def handle(self):
@@ -136,12 +139,14 @@ class ThreadingTCPRequestHandler(socketserver.BaseRequestHandler):
         response = bytes("{}: {}".format(cur_thread.name, data), 'ascii')
         self.request.sendall(response)
 
+
 def client(ip, port, message):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.connect((ip, port))
         sock.sendall(bytes(message, 'ascii'))
         response = str(sock.recv(1024), 'ascii')
         print(f'Received: {response}')
+
 
 if __name__ == '__main__':
     # Port 0 means to select an arbitrary unused port
