@@ -58,11 +58,11 @@
     - `Semaphore`/`BoundedSemaphore`
     - `Barrier`
 - Package Management
-  - [`pip` - Official Package Manager](recipes/core/pip)
+  - [`pip` - Standard Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
   - [`pipenv` - Virtual Environment Manager](recipes/core/pipenv)
 - Test
-  - [`unittest` - Offical Unit Testing Framework](recipes/core/unittest)
+  - [`unittest` - Standard Unit Testing Framework](recipes/core/unittest)
   - [`pytest` - Testing Framework](recipes/core/pytest)
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](recipes/package)

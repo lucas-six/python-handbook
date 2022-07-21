@@ -1,4 +1,4 @@
-# `unittest` - Official Unit Testing Framework
+# `unittest` - Standard Unit Testing Framework
 
 ## Basic Usage
 
