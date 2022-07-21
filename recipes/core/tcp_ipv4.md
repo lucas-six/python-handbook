@@ -12,7 +12,8 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # socket.INADDR_LOOPBACK: 'localhost'
 # socket.INADDR_ANY: '' or '0.0.0.0'
 # socket.INADDR_BROADCAST
-sock.bind(('localhost', 9999))
+# Port 0 means to select an arbitrary unused port
+sock.bind(('localhost', 0))
 server_address = sock.getsockname()
 sock.listen()
 
@@ -38,7 +39,7 @@ finally:
 ```python
 import socket
 
-client = socket.create_connection(('localhost',9999))
+client = socket.create_connection(('localhost', 9999))
 client.sendall(b'data')
 client.recv(1024)
 client.close()
@@ -50,7 +51,7 @@ Or
 import socket
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('localhost',9999))
+client.connect(('localhost', 9999))
 client.sendall(b'data')
 client.recv(1024)
 client.close()
@@ -63,6 +64,7 @@ without waiting for its natural timeout to expire.
 
 ```python
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+sock.bind(server_address)
 ```
 
 ## `listen` Queue
@@ -136,22 +138,28 @@ or make the change permanently in **`/etc/sysctl.conf`**.
 ```python
 import os
 from pathlib import Path
-from typing import Final
+import socket
+from typing import Final, Optional
 
 
-accept_queue_size = 1024
+sock: socket.SocketType
+accept_queue_size: Optional[int]
 
 
-if os.uname().sysname == 'Linux':
-    max_syn_queue_size: Final[int] = int(
-        Path('/proc/sys/net/ipv4/tcp_max_syn_backlog').read_text().strip()
-    )
-    max_accept_queue_size: Final[int] = int(
+_uname = os.uname()
+os_version_info = tuple(_uname.release.split('.'))
+if _uname.sysname == 'Linux' and os_version_info >= ('2', '2', '0'):  # Linux 2.2+
+    assert socket.SOMAXCONN == int(
         Path('/proc/sys/net/core/somaxconn').read_text().strip()
     )
-    assert socket.SOMAXCONN == max_accept_queue_size
+    max_syn_queue_size: int = int(
+        Path('/proc/sys/net/ipv4/tcp_max_syn_backlog').read_text().strip()
+    )
 
-    accept_queue_size = min(max(backlog, 0), max_accept_queue_size)
+if accept_queue_size is None:
+    sock.listen()
+else:
+    accept_queue_size = min(accept_queue_size, socket.SOMAXCONN)
     sock.listen(accept_queue_size)
 ```
 
