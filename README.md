@@ -57,6 +57,8 @@
     - `Condition`
     - `Semaphore`/`BoundedSemaphore`
     - `Barrier`
+- Networks
+  - [`socketserver`- Standard Networks Server Framework](recipes/core/socketserver)
 - Package Management
   - [`pip` - Standard Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
