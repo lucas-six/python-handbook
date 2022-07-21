@@ -165,6 +165,43 @@ class ImmutablePoint:
         self.x = 1  # Good
 ```
 
+## `@final`
+
+New in Python *3.8*,
+see [PEP 591](https://peps.python.org/pep-0591/ "PEP 591 - Adding a final qualifier to typing").
+
+The **`@typing.final`** decorator is used to restrict the use of *inheritance* and *overriding*.
+
+```python
+from typing import final
+
+@final
+class Base:
+    pass
+
+class Derived(Base):  # Error: Cannot inherit from final class "Base"
+    pass
+```
+
+and
+
+```python
+from typing import final
+
+class Base:
+    @final
+    def done(self) -> None:
+        ...
+
+class Sub(Base):
+    def done(self) -> None:  # Error: Cannot override final attribute "done"
+                             # (previously declared in base class "Base")
+        ...
+```
+
+The method decorator version may be used with all of *instance methods*, *class methods*,
+*static methods*, and *properties*.
+
 ## `ClassVar`
 
 Special type construct to mark **class variables**.
