@@ -1,4 +1,4 @@
-# `pip` - Official Package Manager
+# `pip` - Standard Package Manager
 
 ## `pip.conf`
 
