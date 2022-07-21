@@ -106,7 +106,8 @@ itertools.chain(...) -> itertools.chain[int]: ...
 # socket type
 import socket
 x5: socket.SocketType = socket.socket(...)
-x5: socket.SocketKind = socket.SOCK_STREAM  # or socket.SOCK_DGRAM
+x5: socket.SocketKind = socket.SOCK_STREAM  # or `socket.SOCK_DGRAM`
+x5: socket.AddressFamily = socket.AF_INET  # or `socket.AF_INET6`
 
 # callable object
 # Since Python 3.9, `typing.Callable` is deprecated, using `collections.abc.Callable` instead.
