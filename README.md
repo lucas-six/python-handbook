@@ -53,12 +53,10 @@
   - [Synchronization Primitives - `Event`](recipes/core/synchronization_event)
   - [Synchronization Primitives - Mutex Lock `Lock`](recipes/core/synchronization_lock)
   - [Synchronization Primitives - Reentrant Lock `RLock`](recipes/core/synchronization_rlock)
-  - [Synchronization Primitives](recipes/core/synchronization)
-    - `Condition`
-    - `Semaphore`/`BoundedSemaphore`
-    - `Barrier`
+  - [Synchronization Primitives - `Condition`, `Semaphore`, `BoundedSemaphore`, `Barrier`](recipes/core/synchronization)
 - Networks
   - [`socketserver`- Standard Networks Server Framework](recipes/core/socketserver)
+  - [TCP (IPv4)](recipes/core/tcp_ipv4)
 - Package Management
   - [`pip` - Standard Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
