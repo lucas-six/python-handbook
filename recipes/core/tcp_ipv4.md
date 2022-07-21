@@ -163,6 +163,56 @@ else:
     sock.listen(accept_queue_size)
 ```
 
+## Receive/Send Buffer
+
+### Receive Buffer
+
+#### System Level
+
+```bash
+$ cat /proc/sys/net/ipv4/tcp_rmem
+4096 131072 6291456
+
+$ sysctl net.ipv4.tcp_rmem
+net.ipv4.tcp_rmem = 4096 131072 6291456
+```
+
+- min: *4KB*
+- default: *128KB*
+- max: *6MB*
+
+#### Application Level
+
+```python
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, N)
+
+recv_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
+```
+
+### Send Buffer
+
+#### System Level
+
+```bash
+$ cat /proc/sys/net/ipv4/tcp_wmem
+4096 16384 4194304
+
+$ sysctl net.ipv4.tcp_rmem
+net.ipv4.tcp_rmem = 4096 16384 4194304
+```
+
+- min: *4KB*
+- default: *16KB*
+- max: *4MB*
+
+#### Application Level
+
+```python
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
+
+send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
+```
+
 ## References
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)
