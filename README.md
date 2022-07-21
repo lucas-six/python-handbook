@@ -44,6 +44,7 @@
   - [Inheritance of File Descriptor](recipes/core/fd_inheritable)
   - [File-Like Object (I/O)](recipes/core/file_object)
   - [`open()` Reference Implementation](recipes/core/open)
+- [Logging](recipes/core/logging)
 - Parallelism & Concurrent
   - [`threading` - Multi-Threads Parallelism for **I/O-bound** tasks](recipes/core/multi_threads)
   - [`multiprocessing` - Multi-Processes Parallelism for **CPU-bound** tasks](recipes/core/multi_processes)
@@ -56,7 +57,6 @@
     - `Condition`
     - `Semaphore`/`BoundedSemaphore`
     - `Barrier`
-- [Logging](recipes/core/logging)
 - Package Management
   - [`pip` - Official Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
