@@ -1,5 +1,7 @@
 # TCP (IPv4)
 
+TCP = Transmission Control Protocol
+
 ## Server
 
 ```python
@@ -22,10 +24,11 @@ try:
         conn, client_address = sock.accept()
         with conn:
             while True:
-                data = conn.recv(1024)
-                if data:
-                    logging.debug(f'receive data from {client_address}')
-                    conn.sendall(data)
+                raw_data: bytes = conn.recv(1024)
+                if raw_data:
+                    data = raw_data.decode('utf-8')
+                    logging.debug(f'receive data {data} from {client_address}')
+                    conn.sendall(raw_data)
                 else:
                     logging.debug(f'no data from {client_address}')
                     break
