@@ -42,10 +42,13 @@ finally:
 ```python
 import socket
 
-client = socket.create_connection(('localhost', 9999))
-client.sendall(b'data')
-client.recv(1024)
-client.close()
+
+try:
+    with socket.create_connection(('localhost', 9999)) as client
+        client.sendall(b'data')
+        client.recv(1024)
+except OSError as err:
+    # error handling
 ```
 
 Or
@@ -53,11 +56,14 @@ Or
 ```python
 import socket
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('localhost', 9999))
-client.sendall(b'data')
-client.recv(1024)
-client.close()
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
+    try:
+        client.connect(('localhost', 9999))
+        client.sendall(b'data')
+        client.recv(1024)
+    except OSError as err:
+        # error handling
 ```
 
 ## Reuse Address
