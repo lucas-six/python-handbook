@@ -40,3 +40,7 @@ try:
 except FileNotFoundError:
     pass
 ```
+
+## References
+
+- [Python - `@contextlib.suppress` decorator](https://docs.python.org/3/library/contextlib.html#contextlib.suppress)
