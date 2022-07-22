@@ -28,6 +28,7 @@
 - [Function (Method) Decorator](recipes/core/function_decorator)
 - [Class Decorator](recipes/core/class_decorator)
 - [Context Manager](recipes/core/context_manager)
+- [Suppress Exception](https://leven-cn.github.io/python-handbook/recipes/core/suppress_exception)
 - Time
   - [Time](recipes/core/time)
   - [Time Zone](recipes/core/timezone)
