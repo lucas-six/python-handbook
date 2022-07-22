@@ -38,14 +38,12 @@ finally:
 import socket
 
 
-client = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-try:
-    client.sendto(b'data', ('localhost', 9999))
-    data, server_address = client.recvfrom(1024)
-except OSError as err:
-    # error handling
-finally:
-    client.close()
+with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as client:
+    try:
+        client.sendto(b'data', ('localhost', 9999))
+        data, server_address = client.recvfrom(1024)
+    except OSError as err:
+        # error handling
 ```
 
 ## Reuse Address

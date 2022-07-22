@@ -43,14 +43,12 @@ finally:
 import socket
 
 
-client = socket.create_connection(('localhost', 9999))
 try:
-    client.sendall(b'data')
-    client.recv(1024)
+    with socket.create_connection(('localhost', 9999)) as client
+        client.sendall(b'data')
+        client.recv(1024)
 except OSError as err:
     # error handling
-finally:
-    client.close()
 ```
 
 Or
@@ -59,15 +57,13 @@ Or
 import socket
 
 
-client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-try:
-    client.connect(('localhost', 9999))
-    client.sendall(b'data')
-    client.recv(1024)
-except OSError as err:
-    # error handling
-finally:
-    client.close()
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
+    try:
+        client.connect(('localhost', 9999))
+        client.sendall(b'data')
+        client.recv(1024)
+    except OSError as err:
+        # error handling
 ```
 
 ## Reuse Address
