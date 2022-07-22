@@ -57,6 +57,7 @@
 - Networks
   - [`socketserver`- Standard Networks Server Framework](recipes/core/socketserver)
   - [TCP (IPv4)](recipes/core/tcp_ipv4)
+  - [UDP (IPv4)](recipes/core/udp_ipv4)
 - Package Management
   - [`pip` - Standard Package Manager](recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](recipes/core/pipx)
