@@ -148,22 +148,24 @@ or make the change permanently in **`/etc/sysctl.conf`**.
 import os
 from pathlib import Path
 import socket
-from typing import Final, Optional
+from typing import Final, Union
 
 
 sock: socket.SocketType
-accept_queue_size: Optional[int]
+accept_queue_size: Union[int, None] = None
 
 
 _uname = os.uname()
+os_name = _uname.sysname
 os_version_info = tuple(_uname.release.split('.'))
-if _uname.sysname == 'Linux' and os_version_info >= ('2', '2', '0'):  # Linux 2.2+
+if os_name == 'Linux':
     assert socket.SOMAXCONN == int(
         Path('/proc/sys/net/core/somaxconn').read_text().strip()
     )
-    max_syn_queue_size: int = int(
-        Path('/proc/sys/net/ipv4/tcp_max_syn_backlog').read_text().strip()
-    )
+    if os_version_info >= ('2', '2', '0'):  # Linux 2.2+
+        max_syn_queue_size: int = int(
+            Path('/proc/sys/net/ipv4/tcp_max_syn_backlog').read_text().strip()
+        )
 
 if accept_queue_size is None:
     sock.listen()
@@ -174,51 +176,37 @@ else:
 
 ## Receive/Send Buffer
 
-### Receive Buffer
-
-#### System Level
+### OS Level (Linux)
 
 ```bash
+# recv buffer
+# - min: 4KB
+# - default: 128KB
+# - max: 6MB
 $ cat /proc/sys/net/ipv4/tcp_rmem
 4096 131072 6291456
-
 $ sysctl net.ipv4.tcp_rmem
 net.ipv4.tcp_rmem = 4096 131072 6291456
-```
 
-- min: *4KB*
-- default: *128KB*
-- max: *6MB*
-
-#### Application Level
-
-```python
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, N)
-
-recv_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
-```
-
-### Send Buffer
-
-#### System Level
-
-```bash
+# send buffer
+# - min: 4KB
+# - default: 16KB
+# - max: 4MB
 $ cat /proc/sys/net/ipv4/tcp_wmem
 4096 16384 4194304
-
 $ sysctl net.ipv4.tcp_rmem
 net.ipv4.tcp_rmem = 4096 16384 4194304
 ```
 
-- min: *4KB*
-- default: *16KB*
-- max: *4MB*
-
-#### Application Level
+### Application Level
 
 ```python
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
+# recv buffer
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, N)
+recv_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
 
+# send buffer
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
 send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 ```
 
