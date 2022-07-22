@@ -98,6 +98,14 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
 send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 ```
 
+## Timeout
+
+- **blocking mode** (default): `socket.settimeout(None)` or `socket.setblocking(True)`
+- **timeout mode**: `socket.settimeout(3.5)`
+- **non-blocking mode**: `socket.settimeout(0.0)` or `socket.setblocking(False)`
+
+affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvfrom()`.
+
 ## References
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)

@@ -44,7 +44,7 @@ import socket
 
 
 try:
-    with socket.create_connection(('localhost', 9999)) as client
+    with socket.create_connection(('localhost', 9999), timeout=3.5) as client
         client.sendall(b'data')
         client.recv(1024)
 except OSError as err:
@@ -59,7 +59,9 @@ import socket
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
     try:
+        client.settimeout(3.5)
         client.connect(('localhost', 9999))
+        client.settimeout(None)  # back to blocking mode, equivent to setblocking(True)
         client.sendall(b'data')
         client.recv(1024)
     except OSError as err:
@@ -209,6 +211,14 @@ recv_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
 send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 ```
+
+## Timeout
+
+- **blocking mode** (default): `socket.settimeout(None)` or `socket.setblocking(True)`
+- **timeout mode**: `socket.settimeout(3.5)`
+- **non-blocking mode**: `socket.settimeout(0.0)` or `socket.setblocking(False)`
+
+affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvfrom()`.
 
 ## References
 
