@@ -24,7 +24,7 @@ try:
         if raw_data:
             data = raw_data.decode('utf-8')
             logging.debug(f'receive data {data} from {client_address}')
-            conn.sendto(raw_data, client_address)
+            sock.sendto(raw_data, client_address)
         else:
             logging.debug(f'no data from {client_address}')
             break
