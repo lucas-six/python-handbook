@@ -56,6 +56,48 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 sock.bind(server_address)
 ```
 
+## Receive/Send Buffer
+
+### OS Level (Linux)
+
+```bash
+# recv buffer
+# - default: 208KB
+# - max: 208KB
+$ cat /proc/sys/net/core/rmem_max
+212992
+$ sysctl net.core.rmem_max
+net.core.rmem_max = 212992
+$ cat /proc/sys/net/core/rmem_default
+212992
+$ sysctl net.core.rmem_default
+net.core.rmem_default = 212992
+
+# send buffer
+# - default: 208KB
+# - max: 208KB
+$ cat /proc/sys/net/core/wmem_max
+212992
+$ sysctl net.core.wmem_max
+net.core.wmem_max = 212992
+$ cat /proc/sys/net/core/wmem_default
+212992
+$ sysctl net.core.wmem_default
+net.core.wmem_default = 212992
+```
+
+### Application Level
+
+```python
+# recv buffer
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF, N)
+recv_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_RCVBUF)
+
+# send buffer
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
+send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
+```
+
 ## References
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)
