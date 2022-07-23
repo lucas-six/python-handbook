@@ -46,7 +46,7 @@
   - [File-Like Object (I/O)](https://leven-cn.github.io/python-handbook/recipes/core/file_object)
   - [`open()` Reference Implementation](https://leven-cn.github.io/python-handbook/recipes/core/open)
 - [Logging](https://leven-cn.github.io/python-handbook/recipes/core/logging)
-- Parallelism & Concurrent
+- Parallelism and Concurrent
   - [`threading` - Multi-Threads Parallelism for **I/O-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_threads)
   - [`multiprocessing` - Multi-Processes Parallelism for **CPU-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_processes)
   - [Process Pool](https://leven-cn.github.io/python-handbook/recipes/core/process_pool)
@@ -55,11 +55,12 @@
   - [Synchronization Primitives - Mutex Lock `Lock`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization_lock)
   - [Synchronization Primitives - Reentrant Lock `RLock`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization_rlock)
   - [Synchronization Primitives - `Condition`, `Semaphore`, `BoundedSemaphore`, `Barrier`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization)
-- Networks
+- Networks and Communications
   - [`socketserver`- Standard Networks Server Framework](https://leven-cn.github.io/python-handbook/recipes/core/socketserver)
   - [TCP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/tcp_ipv4)
   - [UDP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/udp_ipv4)
   - [UNIX Domain Socket (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/uds_ipv4)
+  - [IPC - Socket Pair](https://leven-cn.github.io/python-handbook/recipes/core/ipc_socketpair)
 - Package Management
   - [`pip` - Standard Package Manager](https://leven-cn.github.io/python-handbook/recipes/core/pip)
   - [`pipx` - Install and Run Python Applications](https://leven-cn.github.io/python-handbook/recipes/core/pipx)
