@@ -60,6 +60,7 @@
   - [TCP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/tcp_ipv4)
   - [UDP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/udp_ipv4)
   - [UNIX Domain Socket (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/uds_ipv4)
+  - [IP Multicast](https://leven-cn.github.io/python-handbook/recipes/core/ip_multicast)
   - [IPC - Socket Pair](https://leven-cn.github.io/python-handbook/recipes/core/ipc_socketpair)
 - Package Management
   - [`pip` - Standard Package Manager](https://leven-cn.github.io/python-handbook/recipes/core/pip)
