@@ -104,8 +104,14 @@ x4.items() -> ItemsView[int, str]: ...
 itertools.chain(...) -> itertools.chain[int]: ...
 
 # socket type
+# Removed usage of `socket.SocketType`
+# `SocketType` is an alias for the private `_socket.socket` class, a superclass of `socket.socket`.
+# It is better to just always use `socket.socket` in types.
+# See https://bugs.python.org/issue44261 and python/typeshed#5545 for some context.
+#   See https://github.com/python/typeshed/pull/5545
+#   See https://github.com/agronholm/anyio/pull/302
 import socket
-x5: socket.SocketType = socket.socket(...)
+x5: socket.socket = socket.socket(...)
 x5: socket.SocketKind = socket.SOCK_STREAM  # or `socket.SOCK_DGRAM`
 x5: socket.AddressFamily = socket.AF_INET  # or `socket.AF_INET6`
 
