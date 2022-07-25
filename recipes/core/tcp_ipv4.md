@@ -70,37 +70,109 @@ sudo sysctl -w net.core.somaxconn=<N>
 
 or make the change permanently in **`/etc/sysctl.conf`**.
 
-```python
-import os
-from pathlib import Path
-import socket
-from typing import Final, Union
+## Timeout
 
+### Application Level
 
-sock: socket.SocketType
-accept_queue_size: Union[int, None] = None
+- **blocking mode** (default): `socket.settimeout(None)` or `socket.setblocking(True)`
+- **timeout mode**: `socket.settimeout(3.5)`
+- **non-blocking mode**: `socket.settimeout(0.0)` or `socket.setblocking(False)`
 
+affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvfrom()`.
 
-_uname = os.uname()
-os_name = _uname.sysname
-os_version_info = tuple(_uname.release.split('.'))
-if os_name == 'Linux':
-    assert socket.SOMAXCONN == int(
-        Path('/proc/sys/net/core/somaxconn').read_text().strip()
-    )
-    if os_version_info >= ('2', '2', '0'):  # Linux 2.2+
-        max_syn_queue_size: int = int(
-            Path('/proc/sys/net/ipv4/tcp_max_syn_backlog').read_text().strip()
-        )
+### Client Connect Timeout (Linux)
 
-if accept_queue_size is None:
-    sock.listen()
-else:
-    accept_queue_size = min(accept_queue_size, socket.SOMAXCONN)
-    sock.listen(accept_queue_size)
+```bash
+cat /proc/sys/net/ipv4/tcp_syn_retries
 ```
 
-## Receive/Send Buffer
+The maximum number of times initial `SYN`s for an active TCP connection attempt will be retransmitted.
+This value should not be higher than *`255`*. The default value is *`6`*,
+which corresponds to retrying for up to approximately *127 seconds*.
+See [Linux - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
+
+```c
+// linux kernel 2.6.32
+icsk->icsk_rto = min(icsk->icsk_rto << 1, TCP_RTO_MAX)
+```
+
+means
+
+```python
+def linux_connect_timeout(tcp_syn_retries: int) -> int:
+    r = tcp_syn_retries
+    timeout = 1
+    while r:
+        r -= 1
+        timeout += 2 ** (tcp_syn_retries - r)
+    return timeout
+```
+
+Before Linux *3.7*, the default value was *`5`*,
+which (in conjunction with calculation based on other kernel parameters)
+corresponded to approximately *180 seconds*.
+
+### Server Connect Timeout (Linux)
+
+```bash
+cat /proc/sys/net/ipv4/tcp_synack_retries
+```
+
+The maximum number of times a `SYN`/`ACK` segment for a passive TCP connection will be retransmitted.
+This number should not be higher than *`255`*.
+See [Linux - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
+
+```c
+// linux kernel 2.6.32
+icsk->icsk_rto = min(icsk->icsk_rto << 1, TCP_RTO_MAX)
+```
+
+means
+
+```python
+def linux_connect_timeout(tcp_synack_retries: int) -> int:
+    r = tcp_synack_retries
+    timeout = 1
+    while r:
+        r -= 1
+        timeout += 2 ** (tcp_synack_retries - r)
+    return timeout
+```
+
+### Recv/Send Timeout (Linux)
+
+The **`SO_RCVTIMEO`** and **`SO_SNDTIMEO`** socket options
+specify the receiving or sending timeouts.
+
+Retransmission: *RTO* (Retransmission Time-Out), *RTT* (Round Trip Time),
+
+[RFC 6298](https://datatracker.ietf.org/doc/html/rfc6298.html) suggests:
+
+```plaintext
+new_RTTs = (1 - α) × (old_RTTs) + α × (new_RTT_sample), 0 <= α < 1 (0.125 recommended)
+RTO = RTTs + 4 × RTTd
+new_RTTd = (1 - β) × (old_RTTd) + β × |RTTs - new_RTT_sample|, 0 <= β < 1 (0.25 recommended)
+```
+
+*Karn's algorithm*.
+
+Set TCP retransmission times, since Linux *2.2*:
+
+```bash
+$ sysctl net.ipv4.tcp_retries1
+3
+$ sysctl net.ipv4.tcp_retries2
+15
+```
+
+Enable TCP **SACK** (**Selective ACKonwledgement**), since Linux *2.2*
+see [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html):
+
+```bash
+sysctl -w net.ipv4.tcp_sack = 1
+```
+
+## Recv/Send Buffer
 
 ### OS Level (Linux)
 
@@ -136,14 +208,6 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
 send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 ```
 
-## Timeout
-
-- **blocking mode** (default): `socket.settimeout(None)` or `socket.setblocking(True)`
-- **timeout mode**: `socket.settimeout(3.5)`
-- **non-blocking mode**: `socket.settimeout(0.0)` or `socket.setblocking(False)`
-
-affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvfrom()`.
-
 ## Examples (Recipes)
 
 - [Create Threaded TCP/UDP Server with Standard Framework](https://leven-cn.github.io/python-cookbook/recipes/core/threaded_server_std)
@@ -153,6 +217,18 @@ affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvf
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)
 - [PEP 3151 – Reworking the OS and IO exception hierarchy](https://peps.python.org/pep-3151/)
+- [Linux Programmer's Manual - tcp(7)](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html)
+- [Linux Programmer's Manual - tcp(7) - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
+- [Linux Programmer's Manual - tcp(7) - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
+- [Linux Programmer's Manual - tcp(7) - `tcp_retries1`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries1)
+- [Linux Programmer's Manual - tcp(7) - `tcp_retries2`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries2)
+- [Linux Programmer's Manual - tcp(7) - `tcp_sack`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_sack)
+- [Linux Programmer's Manual - `socket`(2)](https://manpages.debian.org/bullseye/manpages-dev/socket.2.en.html)
+- [Linux Programmer's Manual - `bind`(2)](https://manpages.debian.org/bullseye/manpages-dev/bind.2.en.html)
 - [Linux Programmer's Manual - `listen`(2)](https://manpages.debian.org/bullseye/manpages-dev/listen.2.en.html)
+- [Linux Programmer's Manual - `accept`(2)](https://manpages.debian.org/bullseye/manpages-dev/accept.2.en.html)
+- [Linux Programmer's Manual - `connect`(2)](https://manpages.debian.org/bullseye/manpages-dev/connect.2.en.html)
 - [Linux Programmer's Manual - `recv`(2)](https://manpages.debian.org/bullseye/manpages-dev/recv.2.en.html)
 - [Linux Programmer's Manual - `send`(2)](https://manpages.debian.org/bullseye/manpages-dev/send.2.en.html)
+- [RFC 6298 - Computing TCP's Retransmission Timer](https://datatracker.ietf.org/doc/html/rfc6298.html)
+- [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html)
