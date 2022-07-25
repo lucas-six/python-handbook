@@ -22,16 +22,14 @@ x2: str  # no initial value!
 
 x3: list[int] = []  # a list of integers
 
-x4: dict[int, str] = {}  # a dictionary of {int: str}
+x4_1: tuple[int, str] = (0, 'a') # a tuple of (int, str)
+x4_2: tuple[int, ...]  # a tuple of integers with any size
 
-x5_1: tuple[int, str] = (0, 'a') # a tuple of (int, str)
-x5_2: tuple[int, ...]  # a tuple of integers with any size
+x5: set[int] = set()  # a set of integers
 
-x6: set[int] = set()  # a set of integers
+x6: bool = True
 
-x7: bool = True
-
-x8: float = 1.5  # int or float
+x7: float = 1.5  # int or float
 
 def f(arg: int) -> int: ...
 ```
@@ -40,178 +38,20 @@ def f(arg: int) -> int: ...
 are deprecated since Python *3.9*, using standard types instead.
 See [PEP 585](https://peps.python.org/pep-0585/ "PEP 585 - Type Hinting Generics In Standard Collections")
 
-## `Any` vs `object`
-
-```python
-from typing import Any
-
-x: Any = None
-x = 1  # ok
-x = 'a'  # ok
-s: str = ''
-s = a  # ok
-
-x: object = None
-x = 1  # ok
-x = 'a'  # ok
-s: str = ''
-s = a  # type check fails
-
-def f(arg: Any):
-    arg.method()  # ok
-def f(arg: object):
-    arg.method()  # type check fails
-
-def f1() -> Any: return 1  # ok
-def f2() -> object: return 1  # ok
-s: str = ''
-s = f1()  # ok
-s = f2()  # type check fails
-
-def f1(arg: Any): pass
-def f2(arg: object): pass
-f1(1)  # ok
-f1('s')  # ok
-f2(1)  # ok
-f1('s')  # ok
-```
-
-```python
-from typing import Any
-
-x1: list[Any] = []  # a list of any type
-x2: dict[int, Any] = {}  # a dictionary of {int: any type}
-x3: tuple[Any, ...]  # tuple of items with any type and any size
-```
-
 ## Advanced
 
 ```python
-# PEP 604, Allow writing union types as X | Y
-from __future__ import annotations
-
-from typing import Literal, ItemsView, Type, NoReturn
-
-x1: int | str  # Union[int, str]: int or str
-
-x2: int | None  # Optional[int] == Union[int, None]
-# x2: Optional[int, str]  # fails: Only one argument(type) accepted.
+from typing import Literal, Type, NoReturn
 
 # Introduced since Python 3.8, See PEP 586.
 x3: Literal[1, 2, True, False]  # one of 1, 2, True, False
 
-# dict.items()
-x4: dict[int, str] = {1: '1'}
-x4.items() -> ItemsView[int, str]: ...
-
 itertools.chain(...) -> itertools.chain[int]: ...
-
-# socket
-# Removed usage of `socket.SocketType`
-# `SocketType` is an alias for the private `_socket.socket` class, a superclass of `socket.socket`.
-# It is better to just always use `socket.socket` in types.
-# See https://bugs.python.org/issue44261 and python/typeshed#5545 for some context.
-#   See https://github.com/python/typeshed/pull/5545
-#   See https://github.com/agronholm/anyio/pull/302
-import socket
-x5: socket.socket = socket.socket(...)
-x5: socket.SocketKind = socket.SOCK_STREAM  # or `socket.SOCK_DGRAM`
-x5: socket.AddressFamily = socket.AF_INET  # or `socket.AF_INET6`
-
-# callable object
-# Since Python 3.9, `typing.Callable` is deprecated, using `collections.abc.Callable` instead.
-# See PEP 585 - Type Hinting Generics In Standard Collections
-#   https://peps.python.org/pep-0585/
-from collections.abc import Callable
-Callable[[Arg1Type, Arg2Type], ReturnType]
-Callable[[...], ReturnType]  # variable arguements
-
-# type object
-class C: pass
-c: Type[C] = C
-o: Type[object]
-e: Type[BaseException]
-
-# regex pattern object
-# Since Python 3.9, `typing.Pattern` is deprecated, using `re.Pattern` instead,
-# and `typing.Match` is replaced with `re.Match`.
-# See PEP 585 - Type Hinting Generics In Standard Collections
-#   https://peps.python.org/pep-0585/
-import re
-p: re.Pattern[str] = re.compile(r'xxx')
-p: re.Pattern[bytes] = re.compile(rb'xxx')
-m: re.Match[str] = re.match(r'xxx', 'xxx')
-m: re.Match[bytes] = re.match(rb'xxx', b'xxx')
 
 # `typing.NoReturn`
 def func(arg: int, arg2: str = 'a') -> NoReturn:
     raise ValueError
 ```
-
-## `Final`
-
-New in Python *3.8*,
-see [PEP 591](https://peps.python.org/pep-0591/ "PEP 591 - Adding a final qualifier to typing").
-
-```python
-from typing import Final
-
-
-# constant
-MAX_SIZE: Final = 1024
-MAX_SIZE: Final[int] = 1024
-
-# class attribute
-class Base:
-    ATTR: Final[int] = 10
-
-class Sub(Base):
-    ATTR = 1  # Error reported by type checker
-
-class ImmutablePoint:
-    x: Final[int]
-    y: Final[int]  # Error: final attribute without an initializer
-
-    def __init__(self) -> None:
-        self.x = 1  # Good
-```
-
-## `@final`
-
-New in Python *3.8*,
-see [PEP 591](https://peps.python.org/pep-0591/ "PEP 591 - Adding a final qualifier to typing").
-
-The **`@typing.final`** decorator is used to restrict the use of *inheritance* and *overriding*.
-
-```python
-from typing import final
-
-@final
-class Base:
-    pass
-
-class Derived(Base):  # Error: Cannot inherit from final class "Base"
-    pass
-```
-
-and
-
-```python
-from typing import final
-
-class Base:
-    @final
-    def done(self) -> None:
-        ...
-
-class Sub(Base):
-    def done(self) -> None:  # Error: Cannot override final attribute "done"
-                             # (previously declared in base class "Base")
-        ...
-```
-
-The method decorator version may be used with all of *instance methods*, *class methods*,
-*static methods*, and *properties*.
 
 ## `ClassVar`
 
@@ -225,12 +65,25 @@ class C:
     ins_attr: int = 10                        # instance variable
 ```
 
+## Examples
+
+- [Type Hint for `dict` and Items](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_dict_items)
+- [Type Hint for Union Types: `|`, `typing.Union`, `typing.Optional`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_union)
+- [Type Hint for Any: `typing.Any` and `object`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_any)
+- [Type Hint for type objects](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_type)
+- [Type Hint for callable objects](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_callable)
+- [Type Hint for Regex](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_regex)
+- [Type Hint for socket](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_socket)
+- [Type Hint for Constants and Class Attributes: `typing.Final`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_constant)
+- [Type Hint for Restricting Inheritance and Overriding: `@typing.final`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_inheritance)
+
 ## Typeshed Stub
 
 See [typeshed](https://github.com/python/typeshed) and [mypy](https://github.com/python/mypy).
 
 ```bash
 pip install mypy
+
 pip install mypy-xxx
 ```
 
