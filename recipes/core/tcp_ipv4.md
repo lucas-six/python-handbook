@@ -2,72 +2,6 @@
 
 TCP = Transmission Control Protocol
 
-## Server
-
-```python
-import logging
-import socket
-
-
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# socket.INADDR_LOOPBACK: 'localhost'
-# socket.INADDR_ANY: '' or '0.0.0.0'
-# socket.INADDR_BROADCAST
-# Port 0 means to select an arbitrary unused port
-sock.bind(('localhost', 0))
-server_address = sock.getsockname()
-sock.listen()
-
-try:
-    while True:
-        conn, client_address = sock.accept()
-        with conn:
-            while True:
-                raw_data: bytes = conn.recv(1024)
-                if raw_data:
-                    data = raw_data.decode('utf-8')
-                    logging.debug(f'receive data {data} from {client_address}')
-                    conn.sendall(raw_data)
-                else:
-                    logging.debug(f'no data from {client_address}')
-                    break
-            conn.shutdown(socket.SHUT_WR)
-finally:
-    sock.close()
-```
-
-## Client
-
-```python
-import socket
-
-
-try:
-    with socket.create_connection(('localhost', 9999), timeout=3.5) as client
-        client.sendall(b'data')
-        client.recv(1024)
-except OSError as err:
-    # error handling
-```
-
-Or
-
-```python
-import socket
-
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
-    try:
-        client.settimeout(3.5)
-        client.connect(('localhost', 9999))
-        client.settimeout(None)  # back to blocking mode, equivent to setblocking(True)
-        client.sendall(b'data')
-        client.recv(1024)
-    except OSError as err:
-        # error handling
-```
-
 ## `listen` Queue
 
 Because of the 3-way handshake used by TCP,
@@ -209,6 +143,11 @@ send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 - **non-blocking mode**: `socket.settimeout(0.0)` or `socket.setblocking(False)`
 
 affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvfrom()`.
+
+## Examples (Recipes)
+
+- [Create Threaded TCP/UDP Server with Standard Framework](https://leven-cn.github.io/python-cookbook/recipes/core/threaded_server_std)
+- [Create TCP Server and Client](https://leven-cn.github.io/python-cookbook/recipes/core/tcp)
 
 ## References
 
