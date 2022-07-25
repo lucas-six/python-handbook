@@ -68,16 +68,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
         # error handling
 ```
 
-## Reuse Address
-
-The **`SO_REUSEADDR`** flag tells the kernel to reuse a local socket in **`TIME_WAIT`** state,
-without waiting for its natural timeout to expire.
-
-```python
-sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-sock.bind(server_address)
-```
-
 ## `listen` Queue
 
 Because of the 3-way handshake used by TCP,
