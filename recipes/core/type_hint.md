@@ -87,12 +87,15 @@ x3: tuple[Any, ...]  # tuple of items with any type and any size
 ## Advanced
 
 ```python
-from typing import Union, Optional, Literal, ItemsView, Type, NoReturn
+# PEP 604, Allow writing union types as X | Y
+from __future__ import annotations
 
-x1: Union[int, str]  # int or str
+from typing import Literal, ItemsView, Type, NoReturn
 
-x2: Optional[int]  # equivalent to Union[int, None].
-x2: Optional[int, str]  # fails: Only one argument(type) accepted.
+x1: int | str  # Union[int, str]: int or str
+
+x2: int | None  # Optional[int] == Union[int, None]
+# x2: Optional[int, str]  # fails: Only one argument(type) accepted.
 
 # Introduced since Python 3.8, See PEP 586.
 x3: Literal[1, 2, True, False]  # one of 1, 2, True, False
@@ -103,7 +106,7 @@ x4.items() -> ItemsView[int, str]: ...
 
 itertools.chain(...) -> itertools.chain[int]: ...
 
-# socket type
+# socket
 # Removed usage of `socket.SocketType`
 # `SocketType` is an alias for the private `_socket.socket` class, a superclass of `socket.socket`.
 # It is better to just always use `socket.socket` in types.
@@ -265,6 +268,7 @@ are handled by evaluating them in `globalns` and `localns` namespaces.
 - [PEP 585 – Type Hinting Generics In Standard Collections](https://peps.python.org/pep-0585/)
 - [PEP 586 – Literal Types](https://peps.python.org/pep-0586/)
 - [PEP 563 – Postponed Evaluation of Annotations](https://peps.python.org/pep-0563/)
+- [PEP 604 – Allow writing union types as `X | Y`](https://peps.python.org/pep-0604/)
 - [GitHub - `typeshed`](https://github.com/python/typeshed)
 - [GitHub - `mypy`](https://github.com/python/mypy).
 - [PyPI - `typing-extensions` package](https://pypi.org/project/typing-extensions/)
