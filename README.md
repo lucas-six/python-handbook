@@ -48,7 +48,6 @@
   - [`multiprocessing` - Multi-Processes Parallelism for **CPU-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_processes)
   - [Process Pool](https://leven-cn.github.io/python-handbook/recipes/core/process_pool)
   - [`concurrent.futures` - High-Level Concurrent](https://leven-cn.github.io/python-handbook/recipes/core/concurrent)
-  - [Synchronization Primitives - Mutex Lock `Lock`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization_lock)
   - [Synchronization Primitives - Reentrant Lock `RLock`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization_rlock)
   - [Synchronization Primitives - `Condition`, `Semaphore`, `BoundedSemaphore`, `Barrier`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization)
 - Networks and Communications (网络通信)
