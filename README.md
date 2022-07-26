@@ -34,7 +34,7 @@
   - [Time Zone](https://leven-cn.github.io/python-handbook/recipes/core/timezone)
   - [Representation of Dates and Times - ISO 8601 Format](https://leven-cn.github.io/python-handbook/recipes/core/iso_8601_fmt)
 - [Type Hint](https://leven-cn.github.io/python-handbook/recipes/core/type_hint)
-- Text Processing
+- Text Processing (文本处理)
   - [Universal Newline](https://leven-cn.github.io/python-handbook/recipes/core/universal_newline)
   - [Regex (Regular Expression)](https://leven-cn.github.io/python-handbook/recipes/core/regex)
   - [FlashText Algorithm - `flashtext`](https://leven-cn.github.io/python-handbook/recipes/core/flashtext)
@@ -43,7 +43,7 @@
   - [File-Like Object (I/O)](https://leven-cn.github.io/python-handbook/recipes/core/file_object)
   - [`open()` Reference Implementation](https://leven-cn.github.io/python-handbook/recipes/core/open)
 - [Logging](https://leven-cn.github.io/python-handbook/recipes/core/logging)
-- Parallelism and Concurrent
+- Parallelism and Concurrent (并发)
   - [`threading` - Multi-Threads Parallelism for **I/O-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_threads)
   - [`multiprocessing` - Multi-Processes Parallelism for **CPU-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_processes)
   - [Process Pool](https://leven-cn.github.io/python-handbook/recipes/core/process_pool)
@@ -52,7 +52,7 @@
   - [Synchronization Primitives - Mutex Lock `Lock`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization_lock)
   - [Synchronization Primitives - Reentrant Lock `RLock`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization_rlock)
   - [Synchronization Primitives - `Condition`, `Semaphore`, `BoundedSemaphore`, `Barrier`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization)
-- Networks and Communications
+- Networks and Communications (网络通信)
   - [`socketserver`- Standard Networks Server Framework](https://leven-cn.github.io/python-handbook/recipes/core/socketserver)
   - [TCP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/tcp_ipv4)
   - [UDP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/udp_ipv4)
