@@ -53,18 +53,6 @@ def func(arg: int, arg2: str = 'a') -> NoReturn:
     raise ValueError
 ```
 
-## `ClassVar`
-
-Special type construct to mark **class variables**.
-
-```python
-from typing import ClassVar
-
-class C:
-    cls_attr: ClassVar[dict[str, int]] = {}   # class variable
-    ins_attr: int = 10                        # instance variable
-```
-
 ## Examples
 
 - [Type Hint for `dict` and Items](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_dict_items)
@@ -75,6 +63,7 @@ class C:
 - [Type Hint for Regex](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_regex)
 - [Type Hint for socket](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_socket)
 - [Type Hint for Constants and Class Attributes: `typing.Final`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_constant)
+- [Type Hint for Class Variables: `typing.ClassVar`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_class_var)
 - [Type Hint for Restricting Inheritance and Overriding: `@typing.final`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_inheritance)
 
 ## Typeshed Stub
