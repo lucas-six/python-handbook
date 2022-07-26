@@ -30,12 +30,9 @@
 - [Context Manager](https://leven-cn.github.io/python-handbook/recipes/core/context_manager)
 - [Suppress Exception](https://leven-cn.github.io/python-handbook/recipes/core/suppress_exception)
 - Time
-  - [Time](https://leven-cn.github.io/python-handbook/recipes/core/time)
+  - [Sleep and Monotonic Clock](https://leven-cn.github.io/python-handbook/recipes/core/sleep)
   - [Time Zone](https://leven-cn.github.io/python-handbook/recipes/core/timezone)
-- Representation of Dates and Times
-  - [ISO 8601 Format](https://leven-cn.github.io/python-handbook/recipes/core/iso_8601_fmt)
-  - [RFC 3339 Format](https://leven-cn.github.io/python-handbook/recipes/core/rfc_3339_fmt)
-  - [Format Dates and Times](https://leven-cn.github.io/python-handbook/recipes/core/time_str_fmt)
+  - [Representation of Dates and Times - ISO 8601 Format](https://leven-cn.github.io/python-handbook/recipes/core/iso_8601_fmt)
 - [Type Hint](https://leven-cn.github.io/python-handbook/recipes/core/type_hint)
 - Text Processing
   - [Universal Newline](https://leven-cn.github.io/python-handbook/recipes/core/universal_newline)
