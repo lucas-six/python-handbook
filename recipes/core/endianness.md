@@ -33,7 +33,7 @@ e.g., *big-endian* in a communications channel transmits the most significant bi
 
 ## Use Cases
 
-- *Intel*/*AMD*/*ARM*/*RISC-V* processors (CPUs) use *little-endian*.
+- *Intel* / *AMD* / *ARM* / *RISC-V* processors (CPUs) use *little-endian*.
 - **network byte order** uses *big-endian*.
 - *Java byte order* uses *big-endian*.
 - *PowerPC* uses *big-endian*.
