@@ -13,35 +13,10 @@ See [PEP 526](https://peps.python.org/pep-0526/ "PEP 526 - Syntax for Variable A
 - static type analysis tools
 - aid IDEs with code completion and refactoring
 
-## Basic Type
-
-```python
-x1: int = 1
-
-x2: str  # no initial value!
-
-x3: list[int] = []  # a list of integers
-
-x4_1: tuple[int, str] = (0, 'a') # a tuple of (int, str)
-x4_2: tuple[int, ...]  # a tuple of integers with any size
-
-x5: set[int] = set()  # a set of integers
-
-x6: bool = True
-
-x7: float = 1.5  # int or float
-
-def f(arg: int) -> int: ...
-```
-
-**NOTE**: *`typing.List`*, *`typing.Dict`*, *`typing.Tuple`*, *`typing.Set`*, *`typing.FrozenSet`*
-are deprecated since Python *3.9*, using standard types instead.
-See [PEP 585](https://peps.python.org/pep-0585/ "PEP 585 - Type Hinting Generics In Standard Collections")
-
 ## Advanced
 
 ```python
-from typing import Literal, Type, NoReturn
+from typing import Literal, NoReturn
 
 # Introduced since Python 3.8, See PEP 586.
 x3: Literal[1, 2, True, False]  # one of 1, 2, True, False
@@ -53,21 +28,9 @@ def func(arg: int, arg2: str = 'a') -> NoReturn:
     raise ValueError
 ```
 
-## `ClassVar`
-
-Special type construct to mark **class variables**.
-
-```python
-from typing import ClassVar
-
-class C:
-    cls_attr: ClassVar[dict[str, int]] = {}   # class variable
-    ins_attr: int = 10                        # instance variable
-```
-
 ## Examples
 
-- [Type Hint for `dict` and Items](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_dict_items)
+- [Type Hint for Basic Types](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_basic_type)
 - [Type Hint for Union Types: `|`, `typing.Union`, `typing.Optional`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_union)
 - [Type Hint for Any: `typing.Any` and `object`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_any)
 - [Type Hint for type objects](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_type)
@@ -75,6 +38,7 @@ class C:
 - [Type Hint for Regex](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_regex)
 - [Type Hint for socket](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_socket)
 - [Type Hint for Constants and Class Attributes: `typing.Final`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_constant)
+- [Type Hint for Class Variables: `typing.ClassVar`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_class_var)
 - [Type Hint for Restricting Inheritance and Overriding: `@typing.final`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_inheritance)
 
 ## Typeshed Stub
