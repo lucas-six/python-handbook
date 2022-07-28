@@ -2,7 +2,7 @@
 
 TCP = Transmission Control Protocol
 
-## `listen` Queue
+## `listen()` Queue
 
 Because of the 3-way handshake used by TCP,
 an incoming connection goes through an intermediate state **`SYN RECEIVED`**
@@ -211,7 +211,6 @@ send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 ## Examples (Recipes)
 
 - [Create TCP Server with Standard Framework (IPv4)](https://leven-cn.github.io/python-cookbook/recipes/core/tcp_server_ipv4_std)
-- [Create Threaded TCP/UDP Server with Standard Framework](https://leven-cn.github.io/python-cookbook/recipes/core/threaded_server_std)
 - [Create TCP Server (IPv4) - Blocking Mode](https://leven-cn.github.io/python-cookbook/recipes/core/tcp_server_ipv4_blocking)
 - [Create TCP Server (IPv4) - Timeout Mode](https://leven-cn.github.io/python-cookbook/recipes/core/tcp_server_ipv4_timeout)
 - [Create TCP Server (IPv4) - Non-Blocking Mode (I/O Multiplex)](https://leven-cn.github.io/python-cookbook/recipes/core/tcp_server_ipv4_io_multiplex)
@@ -223,6 +222,7 @@ send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)
 - [Python - `socketserver` module](https://docs.python.org/3/library/socketserver.html)
+- [Python - `threading` module](https://docs.python.org/3/library/threading.html)
 - [Python - `selectors` module](https://docs.python.org/3/library/selectors.html)
 - [Python - `select` module](https://docs.python.org/3/library/select.html)
 - [PEP 3151 – Reworking the OS and IO exception hierarchy](https://peps.python.org/pep-3151/)
