@@ -1,47 +1,5 @@
 # Synchronization Primitives
 
-## `Semaphore` vs `BoundedSemaphore`
-
-A *`Semaphore`* can be released more times than it's acquired,
-and that will raise its counter above the starting value.
-A *`BoundedSemaphore`* **can't** be raised above the starting value.
-
-This is one of the oldest synchronization primitives in the history of computer science,
-invented by the early Dutch computer scientist *Edsger W. Dijkstra* (he used the names `P()` and `V()`).
-
-## Semaphore
-
-typical use case: producer-consumer situation with limited buffer capacity:
-
-```python
-import queue
-import threading
-
-MAX_SIZE = 5
-
-def consumer(s: threading.BoundedSemaphore, q: queue.Queue):
-    with s:
-        while True:
-            item = q.get()
-            # ... to process the item
-            q.task_done()
-
-def producer(s: threading.BoundedSemaphore, q: queue.Queue):
-    with s:
-        # ... to produce_an_item
-        q.put('an item')
-
-s = threading.BoundedSemaphore(MAX_SIZE)
-q = queue.Queue(MAX_SIZE)
-c1 = threading.Thread(target=consumer, name='c1', args=(s, q))
-c2 = threading.Thread(target=consumer, name='c2', args=(s, q))
-p = threading.Thread(target=producer, name='producer', args=(s, q))
-c1.start()
-c2.start()
-p.start()
-q.join()
-```
-
 ## Barrier
 
 This class provides a simple synchronization primitive for use by a fixed number of threads

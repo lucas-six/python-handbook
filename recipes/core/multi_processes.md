@@ -231,58 +231,6 @@ if __name__ == '__main__':
         max_num_tasks -= 1
 ```
 
-### Semaphore: Connection Pool
-
-```python
-import multiprocessing
-
-class ConnectionPool:
-
-    def __init__(self, init_conns: int, max_conns: int):
-        if init_conns > max_conns:
-            raise ValueError
-
-        mgr = multiprocessing.Manager()
-        self._conns = mgr.list()
-        self._semaphore = multiprocessing.BoundedSemaphore(max_conns)
-
-        while init_conns:
-            # create conns
-            self._conns.append('a conn')
-            init_conns -= 1
-
-    def get_conn(self):
-        with self._semaphore:
-            return self._conns.pop()
-
-    def close_conn(self, conn):
-        with self._semaphore:
-            self._conns.append(conn)
-
-    def close(self):
-        for conn in self._conns:
-            # conn.close()
-            self._conns.remove(conn)
-
-
-def worker(pool):
-    conn = pool.get_conn()
-    # ...
-    poll.close_conn(conn)
-
-
-if __name__ == '__main__':
-    n = 6
-    pool = ConnectionPool(1, n - 1)
-    jobs = []
-    while n:
-        w = multiprocessing.Process(target=worker, args=(pool,))
-        jobs.append(w)
-        w.start()
-    for p in jobs:
-        p.join()
-```
-
 ## References
 
 - [Python - `multiprocessing` module](https://docs.python.org/3/library/multiprocessing.html)

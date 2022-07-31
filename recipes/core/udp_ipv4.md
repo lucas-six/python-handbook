@@ -54,11 +54,14 @@ affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvf
 
 ## Examples (Recipes)
 
-- [Create UDP Server and Client](https://leven-cn.github.io/python-cookbook/recipes/core/udp)
+- [UDP Server (IPv4) - Standard Framework](https://leven-cn.github.io/python-cookbook/recipes/core/udp_server_ipv4_std)
+- [UDP Server (IPv4) - Timeout Mode](https://leven-cn.github.io/python-cookbook/recipes/core/udp_server_ipv4_timeout)
+- [UDP Client (IPv4) - Timeout Mode](https://leven-cn.github.io/python-cookbook/recipes/core/udp_client_ipv4_timeout)
 
 ## References
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)
+- [Python - `socketserver` module](https://docs.python.org/3/library/socketserver.html)
 - [PEP 3151 – Reworking the OS and IO exception hierarchy](https://peps.python.org/pep-3151/)
 - [Linux Programmer's Manual - udp(7)](https://manpages.debian.org/bullseye/manpages/udp.7.en.html)
 - [Linux Programmer's Manual - `socket`(2)](https://manpages.debian.org/bullseye/manpages-dev/socket.2.en.html)
