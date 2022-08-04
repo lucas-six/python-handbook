@@ -49,7 +49,7 @@
   - [Process Pool](https://leven-cn.github.io/python-handbook/recipes/core/process_pool)
   - [`concurrent.futures` - High-Level Concurrent](https://leven-cn.github.io/python-handbook/recipes/core/concurrent)
   - [Synchronization Primitives - Reentrant Lock `RLock`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization_rlock)
-  - [Synchronization Primitives - `Condition`, `Semaphore`, `BoundedSemaphore`, `Barrier`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization)
+  - [Synchronization Primitives - `Barrier`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization)
 - Networks and Communications (网络通信)
   - [`socketserver`- Standard Networks Server Framework](https://leven-cn.github.io/python-handbook/recipes/core/socketserver)
   - [TCP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/tcp_ipv4)
