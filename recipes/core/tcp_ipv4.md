@@ -172,28 +172,34 @@ see [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.o
 sysctl -w net.ipv4.tcp_sack = 1
 ```
 
-## Recv/Send Buffer
+## Receive/Send Buffer
 
 ### OS Level (Linux)
 
 ```bash
 # recv buffer
-# - min: 4KB
-# - default: 128KB
-# - max: 6MB
-$ cat /proc/sys/net/ipv4/tcp_rmem
-4096 131072 6291456
-$ sysctl net.ipv4.tcp_rmem
-net.ipv4.tcp_rmem = 4096 131072 6291456
+# - default: 208KB
+# - max: 208KB
+$ cat /proc/sys/net/core/rmem_max
+212992
+$ sysctl net.core.rmem_max
+net.core.rmem_max = 212992
+$ cat /proc/sys/net/core/rmem_default
+212992
+$ sysctl net.core.rmem_default
+net.core.rmem_default = 212992
 
 # send buffer
-# - min: 4KB
-# - default: 16KB
-# - max: 4MB
-$ cat /proc/sys/net/ipv4/tcp_wmem
-4096 16384 4194304
-$ sysctl net.ipv4.tcp_rmem
-net.ipv4.tcp_rmem = 4096 16384 4194304
+# - default: 208KB
+# - max: 208KB
+$ cat /proc/sys/net/core/wmem_max
+212992
+$ sysctl net.core.wmem_max
+net.core.wmem_max = 212992
+$ cat /proc/sys/net/core/wmem_default
+212992
+$ sysctl net.core.wmem_default
+net.core.wmem_default = 212992
 ```
 
 ### Application Level
@@ -230,12 +236,6 @@ send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 - [Python - `selectors` module](https://docs.python.org/3/library/selectors.html)
 - [Python - `select` module](https://docs.python.org/3/library/select.html)
 - [PEP 3151 – Reworking the OS and IO exception hierarchy](https://peps.python.org/pep-3151/)
-- [Linux Programmer's Manual - tcp(7)](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html)
-- [Linux Programmer's Manual - tcp(7) - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
-- [Linux Programmer's Manual - tcp(7) - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
-- [Linux Programmer's Manual - tcp(7) - `tcp_retries1`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries1)
-- [Linux Programmer's Manual - tcp(7) - `tcp_retries2`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries2)
-- [Linux Programmer's Manual - tcp(7) - `tcp_sack`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_sack)
 - [Linux Programmer's Manual - `socket`(2)](https://manpages.debian.org/bullseye/manpages-dev/socket.2.en.html)
 - [Linux Programmer's Manual - `bind`(2)](https://manpages.debian.org/bullseye/manpages-dev/bind.2.en.html)
 - [Linux Programmer's Manual - `listen`(2)](https://manpages.debian.org/bullseye/manpages-dev/listen.2.en.html)
@@ -246,5 +246,15 @@ send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 - [Linux Programmer's Manual - `connect`(2)](https://manpages.debian.org/bullseye/manpages-dev/connect.2.en.html)
 - [Linux Programmer's Manual - `recv`(2)](https://manpages.debian.org/bullseye/manpages-dev/recv.2.en.html)
 - [Linux Programmer's Manual - `send`(2)](https://manpages.debian.org/bullseye/manpages-dev/send.2.en.html)
+- [Linux Programmer's Manual - socket(7)](https://manpages.debian.org/bullseye/manpages/socket.7.en.html)
+- [Linux Programmer's Manual - socket(7) - `SO_REUSEADDR`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_REUSEADDR)
+- [Linux Programmer's Manual - socket(7) - `SO_RCVBUF`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_RCVBUF)
+- [Linux Programmer's Manual - socket(7) - `SO_SNDBUF`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_SNDBUF)
+- [Linux Programmer's Manual - tcp(7)](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html)
+- [Linux Programmer's Manual - tcp(7) - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
+- [Linux Programmer's Manual - tcp(7) - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
+- [Linux Programmer's Manual - tcp(7) - `tcp_retries1`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries1)
+- [Linux Programmer's Manual - tcp(7) - `tcp_retries2`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries2)
+- [Linux Programmer's Manual - tcp(7) - `tcp_sack`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_sack)
 - [RFC 6298 - Computing TCP's Retransmission Timer](https://datatracker.ietf.org/doc/html/rfc6298.html)
 - [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html)
