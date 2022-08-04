@@ -24,7 +24,6 @@
 
 ### Core
 
-- [String format specification](https://leven-cn.github.io/python-handbook/recipes/core/str_fmt_spec)
 - [Function (Method) Decorator](https://leven-cn.github.io/python-handbook/recipes/core/function_decorator)
 - [Class Decorator](https://leven-cn.github.io/python-handbook/recipes/core/class_decorator)
 - [Context Manager](https://leven-cn.github.io/python-handbook/recipes/core/context_manager)
