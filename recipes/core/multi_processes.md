@@ -3,6 +3,7 @@
 ## Examples (Recipes)
 
 - [Multi-Processes Parallelism for **CPU-bound** tasks](https://leven-cn.github.io/python-cookbook/recipes/core/multi_processes)
+- [Multi-Processes - Queue](https://leven-cn.github.io/python-cookbook/recipes/core/multi_processes_queue)
 
 ## Daemon
 
@@ -71,58 +72,6 @@ if __name__ == '__main__':
     p.join()
     p_error.join()
     logger.debug(p.exitcode, p_error.exitcode)  # 0, 1
-```
-
-## IPC
-
-### Queue: Producer-Consumer
-
-```python
-import multiprocessing
-
-def consumer(tasks: multiprocessing.JoinableQueue, results: multiprocessing.Queue):
-    while True:
-        task = tasks.get()
-        if task is None:
-            tasks.task_done()
-            break
-
-        # ... to process the task
-        tasks.task_done()
-        results.put('result')
-
-def producer(tasks: multiprocessing.JoinableQueue, max_num_tasks):
-    # ... to produce_an_item
-    tasks.put('task')
-    for i in range(max_num_tasks):
-        tasks.put(None)
-
-if __name__ == '__main__':
-    max_num_tasks = multiprocessing.cpu_count() * 2
-    tasks = multiprocessing.JoinableQueue(max_num_tasks)
-    results = multiprocessing.Queue(max_num_tasks)
-
-    # start consumers
-    consumers = []
-    for i in range(max_num_tasks):
-        c = multiprocessing.Process(target=consumer, args=(tasks, results))
-        consumers.append(c)
-        c.start()
-
-    # start producer
-    p = multiprocessing.Process(target=producer, args=(tasks, max_num_tasks))
-    p.start()
-
-    # wait to finish
-    tasks.join()
-    p.join()
-    for c in consumers:
-        c.join()
-
-    # output results
-    while max_num_tasks:
-        result = results.get()
-        max_num_tasks -= 1
 ```
 
 ## References
