@@ -33,115 +33,11 @@ def func(arg1, arg2, ...):
 func = dec2(dec1(func))(arg1, arg2, ...)
 ```
 
-## Usage: Wrapper
+## Examples (Recipes)
 
-### No Argument
-
-```python
-from functools import wraps
-
-def decorator(_func):
-
-    @wraps(_func)
-    def wrapper(*args, **kwargs):
-        """wrapper function."""
-        print(f'run wrapper: {args}, {kwargs}')
-        return _func(*args, **kwargs)
-
-    return wrapper
-
-@decorator
-def func(*args, **kwargs):
-    """original function."""
-    print(f'run func: {args}, {kwargs}')
-
-
-# Without Arguments
->>> func()
-run wrapper: (), {}
-run func: (), {}
-
-# With Arguments
->>> func('arg1', 'arg2')
-run wrapper: ('arg1', 'arg2'), {}
-run func: ('arg1', 'arg2'), {}
-```
-
-```python
->>> func.__module__
-'**main**'
->>> func.__name__
-'func'
->>> func.__doc__
-'original function.'
->>> func.__annotations__
-{}
->>> func.__qualname__
-'func'
-```
-
-Without **`@functools.wraps`**, some attributes have not been passed:
-
-```python
->>> func.__module__
-'__main__'
->>> func.__name__
-'wrapper'
->>> func.__doc__
-'wrapper function.'
->>> func.__annotations__
-{}
->>> func.__qualname__
-'decorator.<locals>.wrapper'
-```
-
-### Required Arguments
-
-```python
-from functools import wraps
-
-def decorator(arg1=None, arg2=None, *_args, **_kwargs):
-
-    def _decorator(_func):
-
-        @wraps(_func)
-        def wrapper(*args, **kwargs):
-            """wrapper function."""
-            print(f'run wrapper: {arg1}, {arg2}, {_args}, {_kwargs}')
-            return _func(*args, **kwargs)
-
-        return wrapper
-
-    return _decorator
-
-@decorator(1, 2)
-def func(*args, **kwargs):
-    """original function."""
-    print(f'run func: {args}, {kwargs}')
-```
-
-### Optional Arguments
-
-```python
-from functools import wraps, partial
-
-def decorator(func=None, *, arg1=None, arg2=None):
-    if func is None:
-        return partial(decorator, arg1=arg1, arg2=arg2)
-
-    @wraps(func)
-    def wrapper(*args, **kwargs):
-        """wrapper function."""
-        print(f'run wrapper: {args}, {kwargs}')
-        return func(*args, **kwargs)
-
-    return wrapper
-
-@decorator(1, 2)
-def func(*args, **kwargs):
-    """original function."""
-    print('run func')
-```
+- [Create Function Decorator Without Argument](https://leven-cn.github.io/python-cookbook/recipes/core/function_decorator_no_args)
+- [Create Function Decorator With Required Arguments](https://leven-cn.github.io/python-cookbook/recipes/core/function_decorator_args_required)
+- [Create Function Decorator With Optional Arguments](https://leven-cn.github.io/python-cookbook/recipes/core/function_decorator_args_optional)
 
 ## Usage: Act on Function
 
