@@ -16,10 +16,7 @@ See [PEP 526](https://peps.python.org/pep-0526/ "PEP 526 - Syntax for Variable A
 ## Advanced
 
 ```python
-from typing import Literal, NoReturn
-
-# Introduced since Python 3.8, See PEP 586.
-x3: Literal[1, 2, True, False]  # one of 1, 2, True, False
+from typing import NoReturn
 
 itertools.chain(...) -> itertools.chain[int]: ...
 
@@ -28,9 +25,10 @@ def func(arg: int, arg2: str = 'a') -> NoReturn:
     raise ValueError
 ```
 
-## Examples
+## Examples (Recipes)
 
 - [Type Hint for Basic Types](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_basic_type)
+- [Type Hint for Literal: `typing.Literal`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_literal)
 - [Type Hint for Union Types: `|`, `typing.Union`, `typing.Optional`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_union)
 - [Type Hint for Any: `typing.Any` and `object`](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_any)
 - [Type Hint for type objects](https://leven-cn.github.io/python-cookbook/recipes/core/type_hint_for_type)
