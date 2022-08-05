@@ -8,7 +8,7 @@
 - `Filter`
 - `Formatter`
 
-## Examples
+## Examples (Recipes)
 
 - [Usage on Python Cookbook](https://leven-cn.github.io/python-cookbook/recipes/core/logging_usage)
 - [Dictionary Configuration on Python Cookbook](https://leven-cn.github.io/python-cookbook/recipes/core/logging_dict_config)
@@ -23,5 +23,3 @@
 - [Python - `logging.config` module](https://docs.python.org/3/library/logging.config.html)
 - [Python - `logging.handlers` module](https://docs.python.org/3/library/logging.handlers.html)
 - [Python - Logging HOWTO](https://docs.python.org/3/howto/logging.html)
-- [Python Cookbook - Logging Usage](https://leven-cn.github.io/python-cookbook/recipes/core/logging_config)
-- [Python Cookbook - Logging Dictionary Configuration](https://leven-cn.github.io/python-cookbook/recipes/core/logging_dict_config)
