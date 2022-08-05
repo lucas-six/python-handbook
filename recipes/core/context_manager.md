@@ -184,41 +184,9 @@ During handling of the above exception, another exception occurred:
 TypeError
 ```
 
-## Syntactic Sugar: `@contextlib.contextmanager`
+## Examples (Recipes)
 
-```python
-from contextlib import contextmanager
-
-@contextmanager
-def managed_resource(*args, **kwds):
-    # Code to acquire resource, e.g.:
-    resource = acquire_resource(*args, **kwds)
-    try:
-        yield resource
-    finally:
-        # Code to release resource, e.g.:
-        release_resource(resource)
-
->>> with managed_resource(timeout=3600) as resource:
-...     pass
-```
-
-Simplified:
-
-```python
-class managed_resource:
-    def __init__(self, *args, **kwds):
-        self.resource = None
-        self.args = args
-        self.kwds = kwds
-
-    def __enter__(self):
-        self.resource = acquire_resource(*self.args, **self.kwds)
-
-    def __exit__(self, exc_type, exc_value, traceback) -> bool:
-        release_resource(self.resource)
-        return False
-```
+- [Create Context Manager](https://leven-cn.github.io/python-cookbook/recipes/core/context_manager)
 
 ## Single Use Context Manager
 
