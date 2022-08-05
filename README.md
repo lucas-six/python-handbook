@@ -57,7 +57,6 @@
   - [`pipenv` - Virtual Environment Manager](https://leven-cn.github.io/python-handbook/recipes/core/pipenv)
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](https://leven-cn.github.io/python-handbook/recipes/package)
-- [Performance Measurement](https://leven-cn.github.io/python-handbook/recipes/perf)
 
 <!-- markdownlint-enable line-length -->
 
