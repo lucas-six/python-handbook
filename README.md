@@ -56,7 +56,6 @@
   - [`pipx` - Install and Run Python Applications](https://leven-cn.github.io/python-handbook/recipes/core/pipx)
   - [`pipenv` - Virtual Environment Manager](https://leven-cn.github.io/python-handbook/recipes/core/pipenv)
 - Test
-  - [`unittest` - Standard Unit Testing Framework](https://leven-cn.github.io/python-handbook/recipes/core/unittest)
   - [`pytest` - Testing Framework](https://leven-cn.github.io/python-handbook/recipes/core/pytest)
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](https://leven-cn.github.io/python-handbook/recipes/package)
