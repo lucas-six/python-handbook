@@ -58,6 +58,10 @@
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](https://leven-cn.github.io/python-handbook/recipes/package)
 
+### Web Development
+
+- [URL, URI, URN](https://leven-cn.github.io/python-handbook/recipes/web/uri_url_urn)
+
 <!-- markdownlint-enable line-length -->
 
 ## License
