@@ -28,9 +28,10 @@ In the context of *HTTP*, URLs are called "*Web address*" or "*link*".
     - *`80`*: http
     - *`443`*: https
 - **path**: the path to the resource on the Web server.
-- **Parameter**: extra parameters provided to the Web server.
+- **parameter** or **query string**: extra parameters provided to the Web server, starting with *`?`*.
 Those parameters are a list of key/value pairs separated with the *`&`* symbol.
-- **anchor**: an anchor to another part of the resource itself. Start with *`#`*.
+- **anchor** or **fragment** (*frag*): an anchor to another part of the resource itself.
+Start with *`#`*.
 
 ## URN, Uniform Resource Name
 
@@ -38,6 +39,10 @@ Those parameters are a list of key/value pairs separated with the *`&`* symbol.
 specifying its location or whether it exists. This example comes from [RFC 3986](https://www.rfc-editor.org/rfc/rfc3986):
 
 `urn:oasis:names:specification:docbook:dtd:xml:4.1.2`
+
+## Examples (Recipes)
+
+- [URL Parsing - `urllib.parse`](https://leven-cn.github.io/python-cookbook/recipes/web/url_parse)
 
 ## References
 
