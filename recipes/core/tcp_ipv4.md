@@ -274,6 +274,23 @@ sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_QUICKACK, 1)
 
 See [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK).
 
+## Slow Start (慢启动)
+
+Since Linux *2.6.18*.
+
+**Slow start** is part of the *congestion control strategy* used by TCP
+in conjunction with other algorithms to avoid sending more data than the network is capable of forwarding,
+that is, to avoid causing network congestion.
+
+Disable it:
+
+```bash
+sysctl -w net.ipv4.tcp_slow_start_after_idle=0
+```
+
+See [RFC 5681 - TCP Congestion Control (2009.9)](https://www.rfc-editor.org/rfc/rfc5681)
+and [Linux Programmer's Manual - tcp(7) - `tcp_slow_start_after_idle`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_slow_start_after_idle)
+
 ## Examples (Recipes)
 
 - [TCP Server (IPv4) - Standard Framework](https://leven-cn.github.io/python-cookbook/recipes/core/tcp_server_ipv4_std)
@@ -289,6 +306,8 @@ See [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debia
 - [TCP Client - Asynchronous I/O (异步 I/O) (Low-Level APIs)](https://leven-cn.github.io/python-cookbook/recipes/core/tcp_client_asyncio_low_api)
 
 ## References
+
+<!-- markdownlint-disable line-length -->
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)
 - [Python - `socketserver` module](https://docs.python.org/3/library/socketserver.html)
@@ -320,7 +339,18 @@ See [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debia
 - [Linux Programmer's Manual - tcp(7) - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
 - [Linux Programmer's Manual - tcp(7) - `tcp_retries1`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries1)
 - [Linux Programmer's Manual - tcp(7) - `tcp_retries2`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries2)
+- [Linux Programmer's Manual - tcp(7) - `tcp_slow_start_after_idle`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_slow_start_after_idle)
 - [Linux Programmer's Manual - tcp(7) - `tcp_sack`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_sack)
+- ~~[RFC 2001 - TCP Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery Algorithms (1997.1) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2001)~~
+- ~~[RFC 2414 - Increasing TCP's Initial Window (1998.9) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2414)~~
+- ~~[RFC 2581 - TCP Congestion Control (1999.4) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2581)~~
+- [RFC 3390 - Increasing TCP's Initial Window (2002.8)](https://www.rfc-editor.org/rfc/rfc3390)
+- [RFC 5681 - TCP Congestion Control (2009.9)](https://www.rfc-editor.org/rfc/rfc5681)
+- ~~[RFC 2861 - TCP Congestion Window Validation (2000.6) (Obsoleted)](https://datatracker.ietf.org/doc/html/rfc2861.html)~~
+- [RFC 7661 - Updating TCP to Support Rate-Limited Traffic (2015.10)](https://datatracker.ietf.org/doc/html/rfc7661.html)
 - [RFC 6298 - Computing TCP's Retransmission Timer](https://datatracker.ietf.org/doc/html/rfc6298.html)
 - [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html)
 - [Wikipedia - Nagle's Algorithm](https://en.wikipedia.org/wiki/Nagle%27s_algorithm)
+- [Wikipedia - TCP Congestion Control](https://en.wikipedia.org/wiki/TCP_congestion_avoidance_algorithm)
+
+<!-- markdownlint-enable line-length -->
