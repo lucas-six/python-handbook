@@ -236,7 +236,7 @@ In kernel, hash algorithms are used:
 
 See [Linux Programmer's Manual - socket(7) - `SO_REUSEPORT`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_REUSEPORT).
 
-## Nagle Algorithm
+## Nagle Algorithm (`TCP_NODELAY`)
 
 Nagle's algorithm works by combining a number of small outgoing messages and sending them all at once.
 It was designed to solve "small-packet problem".
@@ -248,6 +248,31 @@ sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 ```
 
 See [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_NODELAY).
+
+## Delayed ACK (延迟确认) (`TCP_QUICKACK`)
+
+Since Linux *2.4.4*.
+
+The socket option **`SO_REUSEPORT`** allows *`accept()`* **load distribution** in a multi-threaded server
+to be improved by using a distinct listener socket for each thread.
+This provides improved load distribution as compared to traditional techniques
+such using a single `accept()`ing thread that distributes connections,
+or having multiple threads that compete to `accept()` from the same socket.
+
+In quickack mode, *`ACK`*s are sent immediately,
+rather than *delayed* if needed in accordance to normal TCP operation.
+
+The **`TCP_QUICKACK`** flag is not permanent, it only enables a switch to or from quickack mode.
+Subsequent operation of the TCP protocol will once again enter/leave quickack mode
+depending on internal protocol processing and factors
+such as delayed ack timeouts occurring and data transfer.
+This option should not be used in code intended to be portable.
+
+```python
+sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_QUICKACK, 1)
+```
+
+See [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK).
 
 ## Examples (Recipes)
 
@@ -290,6 +315,7 @@ See [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian
 - [Linux Programmer's Manual - socket(7) - `SO_SNDBUF`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_SNDBUF)
 - [Linux Programmer's Manual - tcp(7)](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html)
 - [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_NODELAY)
+- [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK)
 - [Linux Programmer's Manual - tcp(7) - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
 - [Linux Programmer's Manual - tcp(7) - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
 - [Linux Programmer's Manual - tcp(7) - `tcp_retries1`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries1)
