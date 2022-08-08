@@ -2,6 +2,8 @@
 
 TCP = Transmission Control Protocol
 
+See [RFC 793 - TRANSMISSION CONTROL PROTOCOL (1981.9)](https://www.rfc-editor.org/rfc/rfc793).
+
 ## `listen()` Queue
 
 Because of the 3-way handshake used by TCP,
@@ -247,7 +249,8 @@ Disable it:
 sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
 ```
 
-See [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_NODELAY).
+See [RFC 896 - Congestion Control in IP/TCP Internetworks (1984.1) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc896)
+and [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_NODELAY).
 
 ## Delayed ACK (延迟确认) (`TCP_QUICKACK`)
 
@@ -272,7 +275,8 @@ This option should not be used in code intended to be portable.
 sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_QUICKACK, 1)
 ```
 
-See [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK).
+See [RFC 813 - WINDOW AND ACKNOWLEDGEMENT STRATEGY IN TCP (1982.7) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc813)
+and [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK).
 
 ## Slow Start (慢启动)
 
@@ -341,6 +345,11 @@ and [Linux Programmer's Manual - tcp(7) - `tcp_slow_start_after_idle`](https://m
 - [Linux Programmer's Manual - tcp(7) - `tcp_retries2`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries2)
 - [Linux Programmer's Manual - tcp(7) - `tcp_slow_start_after_idle`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_slow_start_after_idle)
 - [Linux Programmer's Manual - tcp(7) - `tcp_sack`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_sack)
+- [RFC 793 - TRANSMISSION CONTROL PROTOCOL (1981.9)](https://www.rfc-editor.org/rfc/rfc793)
+- [RFC 6298 - Computing TCP's Retransmission Timer](https://datatracker.ietf.org/doc/html/rfc6298.html)
+- [RFC 896 - Congestion Control in IP/TCP Internetworks (1984.1) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc896)
+- [RFC 813 - WINDOW AND ACKNOWLEDGEMENT STRATEGY IN TCP (1982.7) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc813)
+- [RFC 7805 - Moving Outdated TCP Extensions and TCP-Related Documents to Historic or Informational Status (2016.4)](https://www.rfc-editor.org/rfc/rfc7805)
 - ~~[RFC 2001 - TCP Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery Algorithms (1997.1) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2001)~~
 - ~~[RFC 2414 - Increasing TCP's Initial Window (1998.9) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2414)~~
 - ~~[RFC 2581 - TCP Congestion Control (1999.4) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2581)~~
@@ -348,7 +357,6 @@ and [Linux Programmer's Manual - tcp(7) - `tcp_slow_start_after_idle`](https://m
 - [RFC 5681 - TCP Congestion Control (2009.9)](https://www.rfc-editor.org/rfc/rfc5681)
 - ~~[RFC 2861 - TCP Congestion Window Validation (2000.6) (Obsoleted)](https://datatracker.ietf.org/doc/html/rfc2861.html)~~
 - [RFC 7661 - Updating TCP to Support Rate-Limited Traffic (2015.10)](https://datatracker.ietf.org/doc/html/rfc7661.html)
-- [RFC 6298 - Computing TCP's Retransmission Timer](https://datatracker.ietf.org/doc/html/rfc6298.html)
 - [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html)
 - [Wikipedia - Nagle's Algorithm](https://en.wikipedia.org/wiki/Nagle%27s_algorithm)
 - [Wikipedia - TCP Congestion Control](https://en.wikipedia.org/wiki/TCP_congestion_avoidance_algorithm)
