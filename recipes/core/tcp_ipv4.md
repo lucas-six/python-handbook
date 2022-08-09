@@ -84,8 +84,16 @@ affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvf
 
 ### Client Connect Timeout (Linux)
 
+Since Linux *2.2*.
+
 ```bash
 cat /proc/sys/net/ipv4/tcp_syn_retries
+```
+
+or
+
+```bash
+sysctl -w net.ipv4.tcp_syn_retries = 2
 ```
 
 The maximum number of times initial `SYN`s for an active TCP connection attempt will be retransmitted.
@@ -116,8 +124,16 @@ corresponded to approximately *180 seconds*.
 
 ### Server Connect Timeout (Linux)
 
+Since Linux *2.2*.
+
 ```bash
 cat /proc/sys/net/ipv4/tcp_synack_retries
+```
+
+or
+
+```bash
+sysctl -w net.ipv4.tcp_synack_retries = 2
 ```
 
 The maximum number of times a `SYN`/`ACK` segment for a passive TCP connection will be retransmitted.
@@ -165,13 +181,9 @@ $ sysctl net.ipv4.tcp_retries1
 3
 $ sysctl net.ipv4.tcp_retries2
 15
-```
 
-Enable TCP **SACK** (**Selective ACKonwledgement**), since Linux *2.2*
-see [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html):
-
-```bash
-sysctl -w net.ipv4.tcp_sack = 1
+sysctl -w net.ipv4.tcp_retries1 = 3
+sysctl -w net.ipv4.tcp_retries2 = 5
 ```
 
 ## Receive/Send Buffer
@@ -202,6 +214,18 @@ $ cat /proc/sys/net/core/wmem_default
 212992
 $ sysctl net.core.wmem_default
 net.core.wmem_default = 212992
+
+$ cat /proc/sys/net/ipv4/tcp_rmem
+4096    131072  6291456
+$ sysctl net.ipv4.tcp_rmem
+net.ipv4.tcp_rmem = 4096        131072  6291456
+$ cat /proc/sys/net/ipv4/tcp_wmem
+4096    16384   4194304
+$ sysctl net.ipv4.tcp_wmem
+net.ipv4.tcp_rmem = 4096        16384   4194304
+$ cat /proc/sys/net/ipv4/tcp_window_scaling
+1
+$ sysctl -w net.ipv4.tcp_window_scaling = 1
 ```
 
 ### Application Level
@@ -292,8 +316,111 @@ Disable it:
 sysctl -w net.ipv4.tcp_slow_start_after_idle=0
 ```
 
-See [RFC 5681 - TCP Congestion Control (2009.9)](https://www.rfc-editor.org/rfc/rfc5681)
+See [RFC 2001 - TCP Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery Algorithms (1997.1)](https://www.rfc-editor.org/rfc/rfc2001)
+(Obsoleted by [RFC 5681](https://www.rfc-editor.org/rfc/rfc5681)),
+[RFC 2861 - TCP Congestion Window Validation (2000.6)](https://datatracker.ietf.org/doc/html/rfc2861.html)
+(Obsoleted by [RFC 7661](https://datatracker.ietf.org/doc/html/rfc7661.html)),
 and [Linux Programmer's Manual - tcp(7) - `tcp_slow_start_after_idle`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_slow_start_after_idle)
+
+## Keep-Alive
+
+### `tcp_keepalive_time`
+
+Since Linux *2.2*.
+
+The number of seconds a connection needs to be idle before TCP begins sending out keep-alive probes.
+
+(空闲时，启动探测间隔时间（秒）)
+
+```bash
+$ cat /proc/sys/net/ipv4/tcp_keepalive_time
+7200
+$ sysctl net.ipv4.tcp_keepalive_time
+net.ipv4.tcp_keepalive_time = 7200
+
+$ sudo sysctl -w net.ipv4.tcp_keepalive_time = 3600
+```
+
+See [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_time`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_time).
+
+Since Linux *2.4*.
+
+```python
+sock.setsocketopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_KEEPIDLE, 3600)
+```
+
+See [Linux Programmer's Manual - socket(7) - `SO_KEEPALIVE`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_KEEPALIVE),
+and [Linux Programmer's Manual - tcp(7) - `TCP_KEEPIDLE`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_KEEPIDLE).
+
+### `tcp_keepalive_probes`
+
+Since Linux *2.2*.
+
+The maximum number of TCP keep-alive probes to send before giving up and killing the connection
+if no response is obtained from the other end.
+
+(网络不可达时，重发探测次数)
+
+```bash
+$ cat /proc/sys/net/ipv4/tcp_keepalive_probes
+9
+$ sysctl net.ipv4.tcp_keepalive_probes
+net.ipv4.tcp_keepalive_probes = 9
+
+$ sudo sysctl -w net.ipv4.tcp_keepalive_probes = 9
+```
+
+See [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_probes`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_probes).
+
+Since Linux *2.4*.
+
+```python
+sock.setsocketopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_KEEPCNT, 9)
+```
+
+See [Linux Programmer's Manual - socket(7) - `SO_KEEPALIVE`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_KEEPALIVE),
+and [Linux Programmer's Manual - tcp(7) - `TCP_KEEPCNT`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_KEEPCNT).
+
+### `tcp_keepalive_intvl`
+
+Since Linux *2.4*.
+
+The number of seconds between TCP keep-alive probes.
+
+(网络不可达时，重发探测间隔时间（秒）)
+
+```bash
+$ cat /proc/sys/net/ipv4/tcp_keepalive_intvl
+75
+$ sysctl net.ipv4.tcp_keepalive_intvl
+net.ipv4.tcp_keepalive_intvl = 75
+
+$ sudo sysctl -w net.ipv4.tcp_keepalive_intvl = 25
+```
+
+See [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_intvl`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_intvl).
+
+Since Linux *2.4*.
+
+```python
+sock.setsocketopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_KEEPINTVL, 25)
+```
+
+See [Linux Programmer's Manual - socket(7) - `SO_KEEPALIVE`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_KEEPALIVE),
+and [Linux Programmer's Manual - tcp(7) - `TCP_KEEPINTVL`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_KEEPINTVL).
+
+## Selective ACK (SACK)
+
+Since Linux *2.2*.
+
+```bash
+sysctl -w net.ipv4.tcp_sack = 1
+```
+
+See [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html).
 
 ## Examples (Recipes)
 
@@ -336,26 +463,42 @@ and [Linux Programmer's Manual - tcp(7) - `tcp_slow_start_after_idle`](https://m
 - [Linux Programmer's Manual - socket(7) - `SO_REUSEPORT`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_REUSEPORT)
 - [Linux Programmer's Manual - socket(7) - `SO_RCVBUF`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_RCVBUF)
 - [Linux Programmer's Manual - socket(7) - `SO_SNDBUF`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_SNDBUF)
+- [Linux Programmer's Manual - socket(7) - `SO_KEEPALIVE`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_KEEPALIVE)
+- [Linux Programmer's Manual - socket(7) - `rmem_default`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#rmem_default)
+- [Linux Programmer's Manual - socket(7) - `rmem_max`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#rmem_max)
+- [Linux Programmer's Manual - socket(7) - `wmem_default`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#wmem_default)
+- [Linux Programmer's Manual - socket(7) - `wmem_max`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#wmem_max)
 - [Linux Programmer's Manual - tcp(7)](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html)
 - [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_NODELAY)
 - [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK)
+- [Linux Programmer's Manual - tcp(7) - `TCP_KEEPIDLE`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_KEEPIDLE)
+- [Linux Programmer's Manual - tcp(7) - `TCP_KEEPCNT`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_KEEPCNT)
+- [Linux Programmer's Manual - tcp(7) - `TCP_KEEPINTVL`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_KEEPINTVL)
 - [Linux Programmer's Manual - tcp(7) - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
 - [Linux Programmer's Manual - tcp(7) - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
 - [Linux Programmer's Manual - tcp(7) - `tcp_retries1`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries1)
 - [Linux Programmer's Manual - tcp(7) - `tcp_retries2`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries2)
+- [Linux Programmer's Manual - tcp(7) - `tcp_rmem`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_rmem)
+- [Linux Programmer's Manual - tcp(7) - `tcp_wmem`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_wmem)
+- [Linux Programmer's Manual - tcp(7) - `tcp_window_scaling`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_window_scaling)
 - [Linux Programmer's Manual - tcp(7) - `tcp_slow_start_after_idle`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_slow_start_after_idle)
+- [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_time`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_time)
+- [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_probes`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_probes)
+- [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_intvl`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_intvl)
 - [Linux Programmer's Manual - tcp(7) - `tcp_sack`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_sack)
 - [RFC 793 - TRANSMISSION CONTROL PROTOCOL (1981.9)](https://www.rfc-editor.org/rfc/rfc793)
 - [RFC 6298 - Computing TCP's Retransmission Timer](https://datatracker.ietf.org/doc/html/rfc6298.html)
-- [RFC 896 - Congestion Control in IP/TCP Internetworks (1984.1) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc896)
+- [RFC 896 - Congestion Control in IP/TCP Internetworks (1984.1)](https://www.rfc-editor.org/rfc/rfc896) (Obsoleted by [RFC 5681](https://www.rfc-editor.org/rfc/rfc5681))
 - [RFC 813 - WINDOW AND ACKNOWLEDGEMENT STRATEGY IN TCP (1982.7) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc813)
 - [RFC 7805 - Moving Outdated TCP Extensions and TCP-Related Documents to Historic or Informational Status (2016.4)](https://www.rfc-editor.org/rfc/rfc7805)
-- ~~[RFC 2001 - TCP Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery Algorithms (1997.1) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2001)~~
-- ~~[RFC 2414 - Increasing TCP's Initial Window (1998.9) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2414)~~
-- ~~[RFC 2581 - TCP Congestion Control (1999.4) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc2581)~~
+- [RFC 2001 - TCP Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery Algorithms (1997.1)](https://www.rfc-editor.org/rfc/rfc2001) (Obsoleted by [RFC 5681](https://www.rfc-editor.org/rfc/rfc5681))
+- [RFC 2414 - Increasing TCP's Initial Window (1998.9)](https://www.rfc-editor.org/rfc/rfc2414) (Obsoleted by [RFC 3390](https://www.rfc-editor.org/rfc/rfc3390))
+- [RFC 2581 - TCP Congestion Control (1999.4)](https://www.rfc-editor.org/rfc/rfc2581) (Obsoleted by [RFC 5681](https://www.rfc-editor.org/rfc/rfc5681))
 - [RFC 3390 - Increasing TCP's Initial Window (2002.8)](https://www.rfc-editor.org/rfc/rfc3390)
 - [RFC 5681 - TCP Congestion Control (2009.9)](https://www.rfc-editor.org/rfc/rfc5681)
-- ~~[RFC 2861 - TCP Congestion Window Validation (2000.6) (Obsoleted)](https://datatracker.ietf.org/doc/html/rfc2861.html)~~
+- [RFC 1323 - TCP Extensions for High Performance (1992.5)](https://www.rfc-editor.org/rfc/rfc1323) (Obsoleted by [RFC 7323]((https://www.rfc-editor.org/rfc/rfc7323)))
+- [RFC 7323 - TCP Extensions for High Performance (2014.9)](https://www.rfc-editor.org/rfc/rfc7323)
+- [RFC 2861 - TCP Congestion Window Validation (2000.6)](https://datatracker.ietf.org/doc/html/rfc2861.html) (Obsoleted by [RFC 7661](https://datatracker.ietf.org/doc/html/rfc7661.html))
 - [RFC 7661 - Updating TCP to Support Rate-Limited Traffic (2015.10)](https://datatracker.ietf.org/doc/html/rfc7661.html)
 - [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html)
 - [Wikipedia - Nagle's Algorithm](https://en.wikipedia.org/wiki/Nagle%27s_algorithm)
