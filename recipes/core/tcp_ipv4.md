@@ -99,7 +99,6 @@ sysctl -w net.ipv4.tcp_syn_retries = 2
 The maximum number of times initial `SYN`s for an active TCP connection attempt will be retransmitted.
 This value should not be higher than *`255`*. The default value is *`6`*,
 which corresponds to retrying for up to approximately *127 seconds*.
-See [Linux - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
 
 ```c
 // linux kernel 2.6.32
@@ -121,6 +120,14 @@ def linux_connect_timeout(tcp_syn_retries: int) -> int:
 Before Linux *3.7*, the default value was *`5`*,
 which (in conjunction with calculation based on other kernel parameters)
 corresponded to approximately *180 seconds*.
+
+See [Linux - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
+
+```python
+sock.setsockopt(socket.IPPROTO_TCP, socket.TCP_SYNCNT, 2)
+```
+
+See [Linux Programmer's Manual - tcp(7) - `TCP_SYNCNT`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_SYNCNT).
 
 ### Server Connect Timeout (Linux)
 
@@ -469,6 +476,7 @@ See [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.o
 - [Linux Programmer's Manual - socket(7) - `wmem_default`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#wmem_default)
 - [Linux Programmer's Manual - socket(7) - `wmem_max`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#wmem_max)
 - [Linux Programmer's Manual - tcp(7)](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html)
+- [Linux Programmer's Manual - tcp(7) - `TCP_SYNCNT`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_SYNCNT)
 - [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_NODELAY)
 - [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK)
 - [Linux Programmer's Manual - tcp(7) - `TCP_KEEPIDLE`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_KEEPIDLE)
