@@ -419,6 +419,20 @@ sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_KEEPINTVL, 25)
 See [Linux Programmer's Manual - socket(7) - `SO_KEEPALIVE`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_KEEPALIVE),
 and [Linux Programmer's Manual - tcp(7) - `TCP_KEEPINTVL`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_KEEPINTVL).
 
+## TIME-WAIT Assassination Hazards (TIME-WAIT 暗杀)
+
+```bash
+$ cat /proc/sys/net/ipv4/tcp_rfc1337
+0
+$ sysctl net.ipv4.tcp_rfc1337
+net.ipv4.tcp_rfc1337 = 0
+
+$ sudo sysctl -w net.ipv4.tcp_rfc1337 = 1
+```
+
+See [Linux Programmer's Manual - tcp(7) - `tcp_rfc1337`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_rfc1337)
+and [RFC 1337 - TIME-WAIT Assassination Hazards in TCP (1992.5)](https://www.rfc-editor.org/rfc/rfc1337).
+
 ## Selective ACK (SACK)
 
 Since Linux *2.2*.
@@ -493,6 +507,7 @@ See [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.o
 - [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_time`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_time)
 - [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_probes`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_probes)
 - [Linux Programmer's Manual - tcp(7) - `tcp_keepalive_intvl`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_keepalive_intvl)
+- [Linux Programmer's Manual - tcp(7) - `tcp_rfc1337`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_rfc1337)
 - [Linux Programmer's Manual - tcp(7) - `tcp_sack`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_sack)
 - [RFC 793 - TRANSMISSION CONTROL PROTOCOL (1981.9)](https://www.rfc-editor.org/rfc/rfc793)
 - [RFC 6298 - Computing TCP's Retransmission Timer](https://datatracker.ietf.org/doc/html/rfc6298.html)
@@ -508,6 +523,7 @@ See [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.o
 - [RFC 7323 - TCP Extensions for High Performance (2014.9)](https://www.rfc-editor.org/rfc/rfc7323)
 - [RFC 2861 - TCP Congestion Window Validation (2000.6)](https://datatracker.ietf.org/doc/html/rfc2861.html) (Obsoleted by [RFC 7661](https://datatracker.ietf.org/doc/html/rfc7661.html))
 - [RFC 7661 - Updating TCP to Support Rate-Limited Traffic (2015.10)](https://datatracker.ietf.org/doc/html/rfc7661.html)
+- [RFC 1337 - TIME-WAIT Assassination Hazards in TCP (1992.5)](https://www.rfc-editor.org/rfc/rfc1337)
 - [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html)
 - [Wikipedia - Nagle's Algorithm](https://en.wikipedia.org/wiki/Nagle%27s_algorithm)
 - [Wikipedia - TCP Congestion Control](https://en.wikipedia.org/wiki/TCP_congestion_avoidance_algorithm)
