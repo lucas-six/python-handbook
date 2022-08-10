@@ -247,32 +247,6 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
 send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 ```
 
-## Delayed ACK (延迟确认) (`TCP_QUICKACK`)
-
-Since Linux *2.4.4*.
-
-The socket option **`SO_REUSEPORT`** allows *`accept()`* **load distribution** in a multi-threaded server
-to be improved by using a distinct listener socket for each thread.
-This provides improved load distribution as compared to traditional techniques
-such using a single `accept()`ing thread that distributes connections,
-or having multiple threads that compete to `accept()` from the same socket.
-
-In quickack mode, *`ACK`*s are sent immediately,
-rather than *delayed* if needed in accordance to normal TCP operation.
-
-The **`TCP_QUICKACK`** flag is not permanent, it only enables a switch to or from quickack mode.
-Subsequent operation of the TCP protocol will once again enter/leave quickack mode
-depending on internal protocol processing and factors
-such as delayed ack timeouts occurring and data transfer.
-This option should not be used in code intended to be portable.
-
-```python
-sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_QUICKACK, 1)
-```
-
-See [RFC 813 - WINDOW AND ACKNOWLEDGEMENT STRATEGY IN TCP (1982.7) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc813)
-and [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK).
-
 ## Slow Start (慢启动)
 
 Since Linux *2.6.18*.
@@ -362,7 +336,6 @@ See [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.o
 - [Linux Programmer's Manual - socket(7) - `wmem_max`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#wmem_max)
 - [Linux Programmer's Manual - tcp(7)](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html)
 - [Linux Programmer's Manual - tcp(7) - `TCP_SYNCNT`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_SYNCNT)
-- [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK)
 - [Linux Programmer's Manual - tcp(7) - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
 - [Linux Programmer's Manual - tcp(7) - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
 - [Linux Programmer's Manual - tcp(7) - `tcp_retries1`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_retries1)
@@ -376,7 +349,6 @@ See [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.o
 - [RFC 793 - TRANSMISSION CONTROL PROTOCOL (1981.9)](https://www.rfc-editor.org/rfc/rfc793)
 - [RFC 6298 - Computing TCP's Retransmission Timer](https://datatracker.ietf.org/doc/html/rfc6298.html)
 - [RFC 896 - Congestion Control in IP/TCP Internetworks (1984.1)](https://www.rfc-editor.org/rfc/rfc896) (Obsoleted by [RFC 5681](https://www.rfc-editor.org/rfc/rfc5681))
-- [RFC 813 - WINDOW AND ACKNOWLEDGEMENT STRATEGY IN TCP (1982.7) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc813)
 - [RFC 7805 - Moving Outdated TCP Extensions and TCP-Related Documents to Historic or Informational Status (2016.4)](https://www.rfc-editor.org/rfc/rfc7805)
 - [RFC 2001 - TCP Slow Start, Congestion Avoidance, Fast Retransmit, and Fast Recovery Algorithms (1997.1)](https://www.rfc-editor.org/rfc/rfc2001) (Obsoleted by [RFC 5681](https://www.rfc-editor.org/rfc/rfc5681))
 - [RFC 2414 - Increasing TCP's Initial Window (1998.9)](https://www.rfc-editor.org/rfc/rfc2414) (Obsoleted by [RFC 3390](https://www.rfc-editor.org/rfc/rfc3390))
