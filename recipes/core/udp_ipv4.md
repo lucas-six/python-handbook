@@ -52,18 +52,6 @@ send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 
 affect `connect()`, `accept()`, `send()`/`sendall()`/`sendto()`, `recv()`/`recvfrom()`.
 
-## Reuse Port
-
-Since Linux *3.9*. Improved in Linux *4.5*.
-
-The socket option **`SO_REUSEPORT`** can provide better distribution of incoming datagrams
-to multiple processes (or threads) as compared to the traditional technique of
-having multiple processes compete to receive datagrams on the same socket.
-
-```python
-sock.setsocketopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
-```
-
 ## Examples (Recipes)
 
 - [UDP Server (IPv4) - Standard Framework](https://leven-cn.github.io/python-cookbook/recipes/core/udp_server_ipv4_std)
@@ -75,8 +63,6 @@ sock.setsocketopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
 ## References
 
 - [Python - `socket` module](https://docs.python.org/3/library/socket.html)
-- [Python - `socketserver` module](https://docs.python.org/3/library/socketserver.html)
-- [Python - `asyncio` module](https://docs.python.org/3/library/asyncio.html)
 - [PEP 3151 – Reworking the OS and IO exception hierarchy](https://peps.python.org/pep-3151/)
 - [Linux Programmer's Manual - `socket`(2)](https://manpages.debian.org/bullseye/manpages-dev/socket.2.en.html)
 - [Linux Programmer's Manual - `bind`(2)](https://manpages.debian.org/bullseye/manpages-dev/bind.2.en.html)
@@ -84,7 +70,4 @@ sock.setsocketopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)
 - [Linux Programmer's Manual - `getpeername`(2)](https://manpages.debian.org/bullseye/manpages-dev/getpeername.2.en.html)
 - [Linux Programmer's Manual - `recvfrom`(2)](https://manpages.debian.org/bullseye/manpages-dev/recv.2.en.html)
 - [Linux Programmer's Manual - `sendto`(2)](https://manpages.debian.org/bullseye/manpages-dev/send.2.en.html)
-- [Linux Programmer's Manual - socket(7)](https://manpages.debian.org/bullseye/manpages/socket.7.en.html)
-- [Linux Programmer's Manual - socket(7) - `SO_REUSEADDR`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_REUSEADDR)
-- [Linux Programmer's Manual - socket(7) - `SO_REUSEPORT`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#SO_REUSEPORT)
 - [Linux Programmer's Manual - udp(7)](https://manpages.debian.org/bullseye/manpages/udp.7.en.html)
