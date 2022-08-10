@@ -51,7 +51,6 @@
   - [TCP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/tcp_ipv4)
   - [TCP Keep Alive](https://leven-cn.github.io/python-handbook/recipes/core/tcp_keepalive)
   - [UDP (IPv4)](https://leven-cn.github.io/python-handbook/recipes/core/udp_ipv4)
-  - [TCP/UDP Reuse Port](https://leven-cn.github.io/python-handbook/recipes/core/net_reuse_port)
   - [Endianness](https://leven-cn.github.io/python-handbook/recipes/core/endianness)
 - Package Management
   - [`pip` - Standard Package Manager](https://leven-cn.github.io/python-handbook/recipes/core/pip)
