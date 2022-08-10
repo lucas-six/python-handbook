@@ -247,20 +247,6 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF, N)
 send_buf_size = sock.getsockopt(socket.SOL_SOCKET, socket.SO_SNDBUF)
 ```
 
-## Nagle Algorithm (`TCP_NODELAY`)
-
-Nagle's algorithm works by combining a number of small outgoing messages and sending them all at once.
-It was designed to solve "small-packet problem".
-
-Disable it:
-
-```python
-sock.setsocketopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-```
-
-See [RFC 896 - Congestion Control in IP/TCP Internetworks (1984.1) (Obsoleted)](https://www.rfc-editor.org/rfc/rfc896)
-and [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_NODELAY).
-
 ## Delayed ACK (延迟确认) (`TCP_QUICKACK`)
 
 Since Linux *2.4.4*.
@@ -377,7 +363,6 @@ See [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.o
 - [Linux Programmer's Manual - socket(7) - `wmem_max`](https://manpages.debian.org/bullseye/manpages/socket.7.en.html#wmem_max)
 - [Linux Programmer's Manual - tcp(7)](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html)
 - [Linux Programmer's Manual - tcp(7) - `TCP_SYNCNT`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_SYNCNT)
-- [Linux Programmer's Manual - tcp(7) - `TCP_NODELAY`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_NODELAY)
 - [Linux Programmer's Manual - tcp(7) - `TCP_QUICKACK`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#TCP_QUICKACK)
 - [Linux Programmer's Manual - tcp(7) - `tcp_syn_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_syn_retries)
 - [Linux Programmer's Manual - tcp(7) - `tcp_synack_retries`](https://manpages.debian.org/bullseye/manpages/tcp.7.en.html#tcp_synack_retries)
@@ -405,7 +390,6 @@ See [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.o
 - [RFC 7661 - Updating TCP to Support Rate-Limited Traffic (2015.10)](https://datatracker.ietf.org/doc/html/rfc7661.html)
 - [RFC 1337 - TIME-WAIT Assassination Hazards in TCP (1992.5)](https://www.rfc-editor.org/rfc/rfc1337)
 - [RFC 2018 - TCP Selective Acknowledgment Options](https://datatracker.ietf.org/doc/html/rfc2018.html)
-- [Wikipedia - Nagle's Algorithm](https://en.wikipedia.org/wiki/Nagle%27s_algorithm)
 - [Wikipedia - TCP Congestion Control](https://en.wikipedia.org/wiki/TCP_congestion_avoidance_algorithm)
 
 <!-- markdownlint-enable line-length -->
