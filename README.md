@@ -48,16 +48,8 @@
   - [Synchronization Primitives - `Barrier`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization)
 - Networks and Communications (网络通信)
   - [`socketserver`- Standard Networks Server Framework](https://leven-cn.github.io/python-handbook/recipes/core/socketserver)
-- Package Management
-  - [`pip` - Standard Package Manager](https://leven-cn.github.io/python-handbook/recipes/core/pip)
-  - [`pipx` - Install and Run Python Applications](https://leven-cn.github.io/python-handbook/recipes/core/pipx)
-  - [`pipenv` - Virtual Environment Manager](https://leven-cn.github.io/python-handbook/recipes/core/pipenv)
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](https://leven-cn.github.io/python-handbook/recipes/package)
-
-### Web Development
-
-- [URL, URI, URN](https://leven-cn.github.io/python-handbook/recipes/web/uri_url_urn)
 
 <!-- markdownlint-enable line-length -->
 
