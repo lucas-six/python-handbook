@@ -30,7 +30,6 @@
 - Time
   - [Sleep and Monotonic Clock](https://leven-cn.github.io/python-handbook/recipes/core/sleep)
   - [Time Zone](https://leven-cn.github.io/python-handbook/recipes/core/timezone)
-  - [Representation of Dates and Times - ISO 8601 Format](https://leven-cn.github.io/python-handbook/recipes/core/iso_8601_fmt)
 - [Type Hint](https://leven-cn.github.io/python-handbook/recipes/core/type_hint)
 - Text Processing (文本处理)
   - [Regex (Regular Expression)](https://leven-cn.github.io/python-handbook/recipes/core/regex)
