@@ -35,7 +35,6 @@
 - I/O (File-Like Object)
   - [File-Like Object (I/O)](https://leven-cn.github.io/python-handbook/recipes/core/file_object)
   - [`open()` Reference Implementation](https://leven-cn.github.io/python-handbook/recipes/core/open)
-- [Logging](https://leven-cn.github.io/python-handbook/recipes/core/logging)
 - Parallelism and Concurrent (并发)
   - [`threading` - Multi-Threads Parallelism for **I/O-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_threads)
   - [`multiprocessing` - Multi-Processes Parallelism for **CPU-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_processes)
