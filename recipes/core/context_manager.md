@@ -1,20 +1,5 @@
 # Context Manager
 
-## Multiple Context Managers
-
-```python
-with A() as a, B() as b:
-    SUITE
-```
-
-is semantically equivalent to:
-
-```python
-with A() as a:
-    with B() as b:
-        SUITE
-```
-
 ## Context Manager Protocol
 
 ```python
