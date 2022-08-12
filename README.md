@@ -36,7 +36,6 @@
   - [Regex (Regular Expression)](https://leven-cn.github.io/python-handbook/recipes/core/regex)
   - [FlashText Algorithm - `flashtext`](https://leven-cn.github.io/python-handbook/recipes/core/flashtext)
 - I/O (File-Like Object)
-  - [Inheritance of File Descriptor](https://leven-cn.github.io/python-handbook/recipes/core/fd_inheritable)
   - [File-Like Object (I/O)](https://leven-cn.github.io/python-handbook/recipes/core/file_object)
   - [`open()` Reference Implementation](https://leven-cn.github.io/python-handbook/recipes/core/open)
 - [Logging](https://leven-cn.github.io/python-handbook/recipes/core/logging)
