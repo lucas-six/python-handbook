@@ -26,7 +26,6 @@
 
 - [Function (Method) Decorator](https://leven-cn.github.io/python-handbook/recipes/core/function_decorator)
 - [Class Decorator](https://leven-cn.github.io/python-handbook/recipes/core/class_decorator)
-- [Context Manager](https://leven-cn.github.io/python-handbook/recipes/core/context_manager)
 - Time
   - [Sleep and Monotonic Clock](https://leven-cn.github.io/python-handbook/recipes/core/sleep)
   - [Time Zone](https://leven-cn.github.io/python-handbook/recipes/core/timezone)
