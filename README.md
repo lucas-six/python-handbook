@@ -38,8 +38,6 @@
 - Parallelism and Concurrent (并发)
   - [`threading` - Multi-Threads Parallelism for **I/O-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_threads)
   - [`multiprocessing` - Multi-Processes Parallelism for **CPU-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_processes)
-- Networks and Communications (网络通信)
-  - [`socketserver`- Standard Networks Server Framework](https://leven-cn.github.io/python-handbook/recipes/core/socketserver)
 - Project Management
   - [Packaging Python Projects, Publishing to PyPI](https://leven-cn.github.io/python-handbook/recipes/package)
 
