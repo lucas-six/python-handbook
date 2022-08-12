@@ -33,7 +33,6 @@
   - [Representation of Dates and Times - ISO 8601 Format](https://leven-cn.github.io/python-handbook/recipes/core/iso_8601_fmt)
 - [Type Hint](https://leven-cn.github.io/python-handbook/recipes/core/type_hint)
 - Text Processing (文本处理)
-  - [Universal Newline](https://leven-cn.github.io/python-handbook/recipes/core/universal_newline)
   - [Regex (Regular Expression)](https://leven-cn.github.io/python-handbook/recipes/core/regex)
   - [FlashText Algorithm - `flashtext`](https://leven-cn.github.io/python-handbook/recipes/core/flashtext)
 - I/O (File-Like Object)
