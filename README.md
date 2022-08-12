@@ -40,7 +40,6 @@
   - [`threading` - Multi-Threads Parallelism for **I/O-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_threads)
   - [`multiprocessing` - Multi-Processes Parallelism for **CPU-bound** tasks](https://leven-cn.github.io/python-handbook/recipes/core/multi_processes)
   - [Synchronization Primitives - Reentrant Lock `RLock`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization_rlock)
-  - [Synchronization Primitives - `Barrier`](https://leven-cn.github.io/python-handbook/recipes/core/synchronization)
 - Networks and Communications (网络通信)
   - [`socketserver`- Standard Networks Server Framework](https://leven-cn.github.io/python-handbook/recipes/core/socketserver)
 - Project Management
