@@ -28,7 +28,6 @@
 - [Class Decorator](https://leven-cn.github.io/python-handbook/recipes/core/class_decorator)
 - Time
   - [Sleep and Monotonic Clock](https://leven-cn.github.io/python-handbook/recipes/core/sleep)
-- [Type Hint](https://leven-cn.github.io/python-handbook/recipes/core/type_hint)
 - Text Processing (文本处理)
   - [Regex (Regular Expression)](https://leven-cn.github.io/python-handbook/recipes/core/regex)
   - [FlashText Algorithm - `flashtext`](https://leven-cn.github.io/python-handbook/recipes/core/flashtext)
