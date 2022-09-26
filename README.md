@@ -24,7 +24,6 @@
 
 ### Core
 
-- [Function (Method) Decorator](https://leven-cn.github.io/python-handbook/recipes/core/function_decorator)
 - [Class Decorator](https://leven-cn.github.io/python-handbook/recipes/core/class_decorator)
 - Time
   - [Sleep and Monotonic Clock](https://leven-cn.github.io/python-handbook/recipes/core/sleep)
