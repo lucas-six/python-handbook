@@ -24,7 +24,6 @@
 
 ### Core
 
-- [Class Decorator](https://leven-cn.github.io/python-handbook/recipes/core/class_decorator)
 - Time
   - [Sleep and Monotonic Clock](https://leven-cn.github.io/python-handbook/recipes/core/sleep)
 - Text Processing (文本处理)
